@@ -1,0 +1,12 @@
+{"action":"start","attempt":{"attempt_id":"attempt-aaeaec46933a4967b4bcdc0a78efa64c","revision":"numeric-R0","step":"select","time_ns":63351284800958}}
+{"action":"complete","artifact_id":"a-000000-select","attempt":{"attempt_id":"attempt-aaeaec46933a4967b4bcdc0a78efa64c","revision":"numeric-R0","step":"select","time_ns":63351284800958},"completed_ns":63351285484000}
+{"action":"start","attempt":{"attempt_id":"attempt-e0306e6c6a2444429ef04e932412e3b0","revision":"numeric-R0","step":"summary","time_ns":63351285822791}}
+{"action":"complete","artifact_id":"a-000001-summary","attempt":{"attempt_id":"attempt-e0306e6c6a2444429ef04e932412e3b0","revision":"numeric-R0","step":"summary","time_ns":63351285822791},"completed_ns":63351286184166}
+{"action":"start","attempt":{"attempt_id":"attempt-24b6b946e2dc4ba5b35d35d7be04eb56","revision":"numeric-R0","step":"render","time_ns":63351286374875}}
+{"action":"complete","artifact_id":"a-000002-render","attempt":{"attempt_id":"attempt-24b6b946e2dc4ba5b35d35d7be04eb56","revision":"numeric-R0","step":"render","time_ns":63351286374875},"completed_ns":63351286689375}
+{"action":"start","attempt":{"attempt_id":"attempt-c016d2cfc785469cb22affa7a5dceca9","revision":"readiness-R1","step":"select","time_ns":63351323977833}}
+{"action":"complete","artifact_id":"a-000003-select","attempt":{"attempt_id":"attempt-c016d2cfc785469cb22affa7a5dceca9","revision":"readiness-R1","step":"select","time_ns":63351323977833},"completed_ns":63351324255000}
+{"action":"start","attempt":{"attempt_id":"attempt-cc8614f57b0c4e77a99a7bb011b84de9","revision":"readiness-R1","step":"summary","time_ns":63351324433500}}
+{"action":"complete","artifact_id":"a-000004-summary","attempt":{"attempt_id":"attempt-cc8614f57b0c4e77a99a7bb011b84de9","revision":"readiness-R1","step":"summary","time_ns":63351324433500},"completed_ns":63351324759000}
+{"action":"start","attempt":{"attempt_id":"attempt-dad5634bb6ce4e39bf0fb0ef76854413","revision":"readiness-R1","step":"render","time_ns":63351324959458}}
+{"action":"complete","artifact_id":"a-000005-render","attempt":{"attempt_id":"attempt-dad5634bb6ce4e39bf0fb0ef76854413","revision":"readiness-R1","step":"render","time_ns":63351324959458},"completed_ns":63351325425041}

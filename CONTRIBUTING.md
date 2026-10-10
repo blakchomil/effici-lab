@@ -12,17 +12,23 @@ on one question or defect; discuss a larger experiment in an issue first.
 ## Run and check
 
 Use Python 3.13 or newer from the repository root. Runtime code uses the standard library.
-Both commands create new run directories and preserve existing results:
+These commands create new run directories and preserve existing results:
 
 ```bash
 python3 -m src.intent_revalidation
 python3 -m src.intent_revalidation.report_workflow
+python3 -m src.intent_revalidation.readiness_workflow
 ```
 
 Expected CLI summaries are `Final contracts satisfied: 15/15` and
 `Report workflow contracts satisfied: 12/12`. Each command prints its report path.
 Use `--help` for input/output options. The second workflow reads the committed Phase 1
 metrics; it does not rerun the original experiment.
+The readiness CLI reports `Readiness contracts satisfied: 25/25`: five repeated executions of
+one actual maintainer clarification using frozen dated facts, with no runtime network/model calls.
+Rule/clarification labels share a confirmed-choice parser and do not evaluate natural-language
+generalization or the benefit of asking a question. Expected new stages are 4 for confirmed-B0
+and 1 for every B1/B2 arm, with zero invalid reuse. Each CLI prints its report path.
 
 Install the locked development environment and run the checks:
 

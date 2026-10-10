@@ -1,5 +1,15 @@
 # Changelog
 
+## Unreleased
+
+- Added actual human clarification, frozen facts and deterministic readiness composition preserving
+  prior report bytes. Five cyclic repeats of one public case: 25/25 valid, four versus one new stages,
+  invalid reuse 0/140. Rule/clarification labels share a confirmed-choice parser; no AI policy was run.
+- Audited actual composition attempts and all uses, with regressions for bad provenance, stale facts,
+  missing limitations, invalid cached consumption and altered but semantically equal numeric bytes.
+- Recorded 145 passing local tests, strict checks, CLI rejections and retained failed/development runs.
+- Added the readiness CLI to both CI jobs. External usefulness and total-cost gains remain unestablished.
+
 ## v0.1.0 — initial development research prerelease
 
 - Added the CSV → normalize → aggregate → report comparison for five structured changes.

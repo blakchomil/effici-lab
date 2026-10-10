@@ -1,0 +1,23 @@
+{
+  "source": "Human maintainer clarification in this Codex conversation, 2026-10-10 KST",
+  "request_source": "examples/support-readiness/request.md",
+  "question": "실제 변경 사례의 정답을 연구자가 임의로 정하지 않도록 확인할게. 기존 실험 수치와 출처는 유지하면서, 보고서에 어떤 변경을 반영하려는 뜻이야?",
+  "choices": [
+    {
+      "meaning": "readiness",
+      "text": "지원 준비 현황으로 변경: 현재 라이선스·CI·릴리스 사실을 반영하고, 외부 재현·AI 우위처럼 아직 입증하지 못한 항목도 명시"
+    },
+    {
+      "meaning": "performance",
+      "text": "실험 성능 비교를 보강: 지원 현황보다 재실행·검증·복구 비용과 실패 사례를 중심으로 변경"
+    }
+  ],
+  "answer": "지원 준비 현황으로 변경: 현재 라이선스·CI·릴리스 사실을 반영하고, 외부 재현·AI 우위처럼 아직 입증하지 못한 항목도 명시",
+  "human_confirmed": true,
+  "external_feedback": false,
+  "public_development_case": true,
+  "original_request_was_ambiguous": true,
+  "human_question_count": 1,
+  "human_response_wait_ns": null,
+  "timing_reason": "No trustworthy wall-clock timestamps for question and response; not estimated."
+}

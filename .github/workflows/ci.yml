@@ -37,3 +37,5 @@ jobs:
         run: uv run python -m src.intent_revalidation.report_workflow --output "$RUNNER_TEMP/report-study"
       - name: Reproduce the observed request boundary
         run: PYTHONPATH=. uv run python examples/support-readiness/probe.py "$RUNNER_TEMP/observed-request"
+      - name: Run the human-clarified readiness comparison
+        run: uv run python -m src.intent_revalidation.readiness_workflow --output "$RUNNER_TEMP/readiness-study"

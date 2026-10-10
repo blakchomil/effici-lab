@@ -1,0 +1,9 @@
+{
+  "command": "uv run python -m src.intent_revalidation.readiness_workflow --run-id readiness-development-20261010-01",
+  "exit_code": 2,
+  "output": "Readiness comparison failed: 'examples/support-readiness/request.md' is not in the subpath of '/Users/yangjunmo/effici-lab/intent-revalidation-starter'",
+  "phase": "input provenance capture before seed or policy execution",
+  "cause": "relative default input paths passed to Path.relative_to with an absolute repository path",
+  "policy_comparisons_executed": 0,
+  "preserved": "partial input capture and executable code_snapshot retained; no historical files replaced"
+}

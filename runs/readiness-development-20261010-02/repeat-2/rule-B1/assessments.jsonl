@@ -1,0 +1,3 @@
+{"artifact_id":"a-000000-select","reason":"granular key and bytes","revision":"readiness-R1","step":"select","validity":"valid"}
+{"artifact_id":"a-000001-summary","reason":"granular key and bytes","revision":"readiness-R1","step":"summary","validity":"valid"}
+{"artifact_id":"a-000002-render","reason":"granular key and bytes","revision":"readiness-R1","step":"render","validity":"valid"}

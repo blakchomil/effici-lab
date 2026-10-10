@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-10-10 08:51:31 UTC",
+  "queries": [
+    {
+      "name": "repository",
+      "cmd": "gh repo view --json nameWithOwner,url,licenseInfo",
+      "chunk_id": "2742a7",
+      "wall_time_seconds": 0.695718625,
+      "exit_code": 0,
+      "original_token_count": 39,
+      "output": "{\"licenseInfo\":{\"key\":\"mit\",\"name\":\"MIT License\",\"nickname\":\"\"},\"nameWithOwner\":\"blakchomil/effici-lab\",\"url\":\"https://github.com/blakchomil/effici-lab\"}\n"
+    },
+    {
+      "name": "ci",
+      "cmd": "gh run list --limit 1 --json headSha,status,conclusion,url",
+      "chunk_id": "44fc21",
+      "wall_time_seconds": 1.039907167,
+      "exit_code": 0,
+      "original_token_count": 44,
+      "output": "[{\"conclusion\":\"success\",\"headSha\":\"5066fa41e5d4cde50322f3795437c0565cfc8163\",\"status\":\"completed\",\"url\":\"https://github.com/blakchomil/effici-lab/actions/runs/38031103578\"}]\n"
+    },
+    {
+      "name": "release",
+      "cmd": "gh release view v0.1.0 --json url,tagName,isPrerelease,targetCommitish,publishedAt",
+      "chunk_id": "4ae183",
+      "wall_time_seconds": 0.601502333,
+      "exit_code": 0,
+      "original_token_count": 43,
+      "output": "{\"isPrerelease\":true,\"publishedAt\":\"2026-10-10T06:26:50Z\",\"tagName\":\"v0.1.0\",\"targetCommitish\":\"main\",\"url\":\"https://github.com/blakchomil/effici-lab/releases/tag/v0.1.0\"}\n"
+    },
+    {
+      "name": "revision",
+      "cmd": "git rev-parse HEAD",
+      "chunk_id": "99bca5",
+      "wall_time_seconds": 0.000012208,
+      "exit_code": 0,
+      "original_token_count": 11,
+      "output": "5066fa41e5d4cde50322f3795437c0565cfc8163\n"
+    },
+    {
+      "name": "release_revision",
+      "cmd": "git rev-list -n 1 v0.1.0",
+      "chunk_id": "d03ac8",
+      "wall_time_seconds": 0.000008375,
+      "exit_code": 0,
+      "original_token_count": 11,
+      "output": "27f0fda46379a7ed168a97346f84a11cb7793194\n"
+    },
+    {
+      "name": "license",
+      "cmd": "shasum -a 256 LICENSE",
+      "chunk_id": "d2581b",
+      "wall_time_seconds": 0.00002825,
+      "exit_code": 0,
+      "original_token_count": 19,
+      "output": "91516c66e5bcf23952e2d2478f0fd7374168bfee58cb36e7d2e176987235360a  LICENSE\n"
+    },
+    {
+      "name": "tag",
+      "cmd": "gh api repos/blakchomil/effici-lab/git/ref/tags/v0.1.0",
+      "chunk_id": "9eaa8a",
+      "wall_time_seconds": 0.615695541,
+      "exit_code": 0,
+      "original_token_count": 85,
+      "output": "{\"ref\":\"refs/tags/v0.1.0\",\"node_id\":\"REF_kwDOVDUdM7ByZWZzL3RhZ3MvdjAuMS4w\",\"url\":\"https://api.github.com/repos/blakchomil/effici-lab/git/refs/tags/v0.1.0\",\"object\":{\"sha\":\"4ccda51c4e3b675f74f5b8d33f9fa2439e1a70e4\",\"type\":\"tag\",\"url\":\"https://api.github.com/repos/blakchomil/effici-lab/git/tags/4ccda51c4e3b675f74f5b8d33f9fa2439e1a70e4\"}}"
+    },
+    {
+      "name": "annotated_tag",
+      "cmd": "gh api repos/blakchomil/effici-lab/git/tags/4ccda51c4e3b675f74f5b8d33f9fa2439e1a70e4",
+      "chunk_id": "6b6a7f",
+      "wall_time_seconds": 0.460367959,
+      "exit_code": 0,
+      "original_token_count": 179,
+      "output": "{\"node_id\":\"TA_kwDOVDUdM9oAKDRjY2RhNTFjNGUzYjY3NWY3NGY1YjhkMzNmOWZhMjQzOWUxYTcwZTQ\",\"sha\":\"4ccda51c4e3b675f74f5b8d33f9fa2439e1a70e4\",\"url\":\"https://api.github.com/repos/blakchomil/effici-lab/git/tags/4ccda51c4e3b675f74f5b8d33f9fa2439e1a70e4\",\"tagger\":{\"name\":\"YJM\",\"email\":\"267281257+blakchomil@users.noreply.github.com\",\"date\":\"2026-10-10T06:26:18Z\"},\"object\":{\"sha\":\"27f0fda46379a7ed168a97346f84a11cb7793194\",\"type\":\"commit\",\"url\":\"https://api.github.com/repos/blakchomil/effici-lab/git/commits/27f0fda46379a7ed168a97346f84a11cb7793194\"},\"tag\":\"v0.1.0\",\"message\":\"Initial development research prerelease\\n\",\"verification\":{\"verified\":false,\"reason\":\"unsigned\",\"signature\":null,\"payload\":null,\"verified_at\":null}}"
+    }
+  ]
+}

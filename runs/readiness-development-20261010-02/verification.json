@@ -1,0 +1,35 @@
+{
+  "recorded_at": "2026-10-10 09:15:44 UTC",
+  "command": "uv run python -m src.intent_revalidation.readiness_workflow --run-id readiness-development-20261010-02",
+  "cli": {
+    "chunk_id": "1067eb",
+    "wall_time_seconds": 0.321989334,
+    "exit_code": 0,
+    "original_token_count": 38,
+    "output": "Readiness contracts satisfied: 25/25\r\nReport: /Users/yangjunmo/effici-lab/intent-revalidation-starter/runs/readiness-development-20261010-02/report.md\r\n"
+  },
+  "checks": [
+    {
+      "chunk_id": "e59b96",
+      "wall_time_seconds": 1.5756812500000001,
+      "exit_code": 0,
+      "original_token_count": 45,
+      "output": "........................................................................ [ 53%]\n..............................................................           [100%]\n134 passed in 1.42s\n"
+    },
+    {
+      "chunk_id": "198093",
+      "wall_time_seconds": 0.000007916,
+      "exit_code": 0,
+      "original_token_count": 12,
+      "output": "All checks passed!\n54 files already formatted\n"
+    },
+    {
+      "chunk_id": "77ba2e",
+      "wall_time_seconds": 2.166750083,
+      "exit_code": 0,
+      "original_token_count": 8,
+      "output": "0 errors, 0 warnings, 0 notes\n"
+    }
+  ],
+  "scope": "Successful development result before composition-attempt provenance and exact embedded-byte audit refinements; original code_snapshot retained."
+}

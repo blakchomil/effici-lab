@@ -127,7 +127,7 @@ charged through counts and timing. These single-run millisecond measurements do 
 
 The [observed request case](examples/support-readiness/README.md) preserves a real maintainer request
 from this project's Codex conversation. The proposed readiness-report transformation is separately
-labelled as an agent interpretation; its meaning has not been independently confirmed as a benchmark target.
+labelled as an agent interpretation. A subsequent human clarification is preserved below.
 
 ```bash
 PYTHONPATH=. python3 examples/support-readiness/probe.py /tmp/my-new-readiness-run
@@ -139,6 +139,41 @@ That capability gap does not establish failure of strong deterministic reuse met
 A checklist with separately collected repository facts is a simpler alternative.
 [Actual observations](examples/support-readiness/runs/observed-02/result.json) include counts, timing and hashes;
 no human-time savings, external reproduction or model superiority is claimed.
+
+### Human-clarified readiness report
+
+The maintainer subsequently confirmed preserving prior numbers and sources while adding current
+license/CI/prerelease facts and unestablished external reproduction and AI advantage.
+[Actual question and answer](examples/support-readiness/clarification-20261010.json) ·
+[Frozen dated facts](examples/support-readiness/current-facts-20261010.json) ·
+[Protocol fixed before execution](examples/support-readiness/protocol-20261010.md)
+
+```bash
+python3 -m src.intent_revalidation.readiness_workflow
+python3 -m src.intent_revalidation.readiness_workflow --help
+```
+
+The CLI replays frozen facts without live network/model calls. One measured new numeric seed,
+byte-equal to the actual prior report, is cloned independently; this is a replay fixture,
+not an imported production cache. New composition adds facts without changing numeric requirements.
+Five cyclic repetitions of the **same public case** produced 25/25 valid outputs. Per repetition,
+B0 regenerated four stages; B1/B2 reused three numeric stages and executed one composition,
+matching the finite stage-count minimum. Invalid reuse was 0/140 actual cached exposures.
+The rule/clarification labels share an exact-choice parser after human confirmation. They are
+aliases, not independent natural-language algorithms. No AI policy was evaluated.
+
+[Comparison report](runs/readiness-20261010-01/report.md) ·
+[Example readiness document](runs/readiness-20261010-01/repeat-1/rule-B1/readiness-report.md) ·
+[Metrics](runs/readiness-20261010-01/metrics.json) ·
+[Manifest](runs/readiness-20261010-01/manifest.json) ·
+[Verification](runs/readiness-20261010-01/verification.json)
+
+Independent checks reconstruct numbers from original bytes, enforce exact embedded-byte preservation,
+and audit all uses and composition-attempt provenance. B2's three role recomputations per run are
+counted and timed as checks. Runtime, input/seed, clone and evaluator costs remain separate.
+Human time, development-model usage and dollar costs are unmeasured. Millisecond repeats do not
+establish stable or total-cost savings. Simple clarified controls suffice for this case.
+The final local suite has 145 passing tests and strict checks. Historical probe records are unchanged.
 
 ## Result layout
 

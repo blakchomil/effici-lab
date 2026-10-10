@@ -1,0 +1,31 @@
+{
+  "captured_at": "2026-10-10 08:51:31 UTC",
+  "repository_revision": "5066fa41e5d4cde50322f3795437c0565cfc8163",
+  "facts": [
+    {
+      "key": "license",
+      "value": "MIT",
+      "evidence": "https://github.com/blakchomil/effici-lab/blob/5066fa41e5d4cde50322f3795437c0565cfc8163/LICENSE"
+    },
+    {
+      "key": "ci",
+      "value": "success at 5066fa41e5d4cde50322f3795437c0565cfc8163",
+      "evidence": "https://github.com/blakchomil/effici-lab/actions/runs/38031103578"
+    },
+    {
+      "key": "release",
+      "value": "v0.1.0 development prerelease at 27f0fda46379a7ed168a97346f84a11cb7793194",
+      "evidence": "https://github.com/blakchomil/effici-lab/releases/tag/v0.1.0"
+    },
+    {
+      "key": "external_reproduction",
+      "value": "unestablished",
+      "evidence": "https://github.com/blakchomil/effici-lab/blob/5066fa41e5d4cde50322f3795437c0565cfc8163/docs/support-readiness.md#L24"
+    },
+    {
+      "key": "ai_advantage",
+      "value": "unestablished",
+      "evidence": "https://github.com/blakchomil/effici-lab/blob/5066fa41e5d4cde50322f3795437c0565cfc8163/docs/support-readiness.md#L26"
+    }
+  ]
+}

@@ -7,7 +7,8 @@ requirement changes against strong deterministic alternatives. Program acceptanc
 
 - An [MIT license](../LICENSE) for the source and associated documentation.
 - Two implemented local comparison workflows and preserved actual results: 15/15 and 12/12 final contracts.
-- 77 tests, strict checks, and actual successful Linux/macOS CI at recorded revisions.
+- 145 passing local tests and strict checks; v0.1.0's 77 tests and successful Linux/macOS CI
+  remain recorded separately at that release revision.
 - [Contribution instructions](../CONTRIBUTING.md), reproducibility receipt requirements and initial release notes.
 - A published [v0.1.0 development prerelease](https://github.com/blakchomil/effici-lab/releases/tag/v0.1.0)
   at exact verified revision `27f0fda46379a7ed168a97346f84a11cb7793194`, with
@@ -18,6 +19,14 @@ requirement changes against strong deterministic alternatives. Program acceptanc
 The observed probe exposes missing repository-fact inputs and readiness output fields. It does not
 demonstrate that strong deterministic interpretation/reuse fails or that an AI policy would help.
 The original request and researcher interpretation are separate. A fact-fed checklist remains a simple alternative.
+
+A subsequent [human confirmation](../examples/support-readiness/clarification-20261010.json)
+fixed that interpretation while preserving prior numbers/sources. The
+[executed readiness comparison](../runs/readiness-20261010-01/report.md) has 25/25 valid repeated
+outputs, B0 four versus B1/B2 one new stages each and invalid reuse 0/140 exposures. This is five
+repeats of one public case; both interpretation labels share a confirmed-choice parser. Simple
+clarified controls suffice. It does not demonstrate natural-language accuracy or the benefit of
+asking a question. Actual attempt provenance and exact numeric-byte preservation are audited.
 
 ## What remains unestablished
 
@@ -34,6 +43,7 @@ development results evidence of broad adoption or support acceptance.
 
 The [observed-request task](issues/observed-report-change.md) defines human-confirmed requirements,
 equal-information deterministic/clarification controls, independent validity and cost checks.
+The bounded human-confirmed case is now implemented; external usefulness remains unestablished.
 The [external reproduction task](issues/external-reproduction.md) requires an actual external person;
 maintainer agents, fresh checkouts and hosted CI do not satisfy that requirement.
 Both tasks are publicly open as [#1](https://github.com/blakchomil/effici-lab/issues/1)

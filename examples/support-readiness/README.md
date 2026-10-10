@@ -59,3 +59,31 @@ strict lint/type checks, and the rejected overwrite attempt.
 `observed-01` retains the earlier runtime result and its code snapshot before
 static-check fixes. The final `observed-02` probe took about 13 ms locally;
 that measurement excludes implementation work and is not a savings comparison.
+
+## Subsequent human confirmation and full report
+
+The human subsequently confirmed preserving prior numbers/sources and reporting current support
+facts and missing evidence. [clarification-20261010.json](clarification-20261010.json) preserves the
+exact question/options/response. This is elicited maintainer confirmation, not external feedback
+or a held-out natural-language target. The earlier request and probe retain their historical boundary.
+
+[Current frozen facts](current-facts-20261010.json) concern revision
+`5066fa41e5d4cde50322f3795437c0565cfc8163`. [Capture evidence](evidence-20261010.json) contains
+actual read-only commands, outputs and timings. The old pre-license snapshot is unchanged.
+[The protocol](protocol-20261010.md) specifies controls and checks before comparison.
+
+```sh
+python3 -m src.intent_revalidation.readiness_workflow
+```
+
+[Final results](../../runs/readiness-20261010-01/report.md): 25/25 repeated contracts, B0 four new
+stages versus B1/B2 one composition and three reused numeric stages, invalid reuse 0/140 exposures.
+Rule/clarification labels use the same exact-choice parser; this tests a clarified deterministic
+workflow rather than distinct natural-language strategies. Simple controls suffice. Independent
+numeric checks, exact-byte preservation and input/code/environment provenance are audited.
+
+Input/seed, clone, runtime and evaluator costs are separate. Replay generates no new human question.
+Human waiting/repair, development-agent costs and local dollar costs remain unknown. No evaluated
+model or paid API was used. External usefulness remains open.
+`readiness-development-20261010-01` retains an input-path capture failure before any arm ran;
+`readiness-development-20261010-02` retains the succeeding run before audit refinements.

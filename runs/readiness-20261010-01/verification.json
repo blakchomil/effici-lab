@@ -1,0 +1,120 @@
+{
+  "verified_at": "2026-10-10 09:10:47 UTC",
+  "cwd": "/Users/yangjunmo/effici-lab/intent-revalidation-starter",
+  "cli": {
+    "cmd": "uv run python -m src.intent_revalidation.readiness_workflow --run-id readiness-20261010-01",
+    "chunk_id": "95ecd4",
+    "wall_time_seconds": 0.402400625,
+    "exit_code": 0,
+    "original_token_count": 35,
+    "output": "Readiness contracts satisfied: 25/25\r\nReport: /Users/yangjunmo/effici-lab/intent-revalidation-starter/runs/readiness-20261010-01/report.md\r\n"
+  },
+  "checks": [
+    {
+      "cmd": "uv run pytest -q --junitxml=runs/readiness-20261010-01/verification-tests.xml",
+      "chunk_id": "03ce8f",
+      "wall_time_seconds": 2.365709334,
+      "exit_code": 0,
+      "original_token_count": 65,
+      "output": "........................................................................ [ 49%]\n........................................................................ [ 99%]\n.                                                                        [100%]\n145 passed in 2.03s\n"
+    },
+    {
+      "cmd": "uv run ruff check src tests examples",
+      "chunk_id": "5b831c",
+      "wall_time_seconds": 0.02158275,
+      "exit_code": 0,
+      "original_token_count": 5,
+      "output": "All checks passed!\n"
+    },
+    {
+      "cmd": "uv run ruff format --check src tests examples",
+      "chunk_id": "a068b0",
+      "wall_time_seconds": 0.033858125,
+      "exit_code": 0,
+      "original_token_count": 7,
+      "output": "55 files already formatted\n"
+    },
+    {
+      "cmd": "uv run basedpyright",
+      "chunk_id": "836fb4",
+      "wall_time_seconds": 2.992379208,
+      "exit_code": 0,
+      "original_token_count": 8,
+      "output": "0 errors, 0 warnings, 0 notes\n"
+    },
+    {
+      "cmd": "uv run python /Users/yangjunmo/.codex/plugins/cache/sisyphuslabs/omo/5.1.29/skills/programming/scripts/python/check-no-excuse-rules.py src/intent_revalidation/readiness_workflow tests/test_readiness*.py",
+      "chunk_id": "519aae",
+      "wall_time_seconds": 0.147899833,
+      "exit_code": 0,
+      "original_token_count": 7,
+      "output": "no violations in 15 file(s)\n"
+    }
+  ],
+  "manual_qa": [
+    {
+      "cmd": "uv run python -m src.intent_revalidation.readiness_workflow --help",
+      "chunk_id": "53fd6e",
+      "wall_time_seconds": 0.1712495,
+      "exit_code": 0,
+      "original_token_count": 99,
+      "output": "usage: python3 -m src.intent_revalidation.readiness_workflow\r\n       [-h] [--metrics METRICS] [--case CASE] [--output OUTPUT]\r\n       [--run-id RUN_ID]\r\n\r\nHuman-clarified readiness development comparison\r\n\r\noptions:\r\n  -h, --help         show this help message and exit\r\n  --metrics METRICS\r\n  --case CASE\r\n  --output OUTPUT\r\n  --run-id RUN_ID    new run folder; existing evidence is preserved\r\n"
+    },
+    {
+      "cmd": "uv run python -m src.intent_revalidation.readiness_workflow --run-id readiness-20261010-01",
+      "chunk_id": "279cbe",
+      "wall_time_seconds": 0.189501542,
+      "exit_code": 2,
+      "original_token_count": 21,
+      "output": "Readiness comparison failed: [Errno 17] File exists: 'runs/readiness-20261010-01'\r\n"
+    },
+    {
+      "cmd": "uv run python -m src.intent_revalidation.readiness_workflow --metrics .omo/qa/missing.json --output .omo/qa/negative-results --run-id missing",
+      "chunk_id": "9c7bd8",
+      "wall_time_seconds": 0.199050917,
+      "exit_code": 2,
+      "original_token_count": 23,
+      "output": "Readiness comparison failed: [Errno 2] No such file or directory: '.omo/qa/missing.json'\r\n"
+    },
+    {
+      "cmd": "uv run python -m src.intent_revalidation.readiness_workflow --metrics .omo/qa/readiness-malformed.json --output .omo/qa/negative-results --run-id malformed",
+      "chunk_id": "b6d742",
+      "wall_time_seconds": 0.1532655,
+      "exit_code": 2,
+      "original_token_count": 13,
+      "output": "Readiness comparison failed: JSON: expected array\r\n"
+    },
+    {
+      "cmd": "uv run python -m src.intent_revalidation.readiness_workflow --case .omo/qa/readiness-unanswered --output .omo/qa/negative-results --run-id unanswered",
+      "chunk_id": "6fdf34",
+      "wall_time_seconds": 0.1678595,
+      "exit_code": 2,
+      "original_token_count": 25,
+      "output": "Readiness comparison failed: clarification: readiness meaning remains unresolved or unsupported\r\n"
+    },
+    {
+      "cmd": "uv run python -m src.intent_revalidation.readiness_workflow --run-id ../escape",
+      "chunk_id": "df4925",
+      "wall_time_seconds": 0.139456708,
+      "exit_code": 2,
+      "original_token_count": 23,
+      "output": "Readiness comparison failed: run-id: expected alphanumeric characters, dash or underscore\r\n"
+    }
+  ],
+  "integrity": {
+    "chunk_id": "e82833",
+    "wall_time_seconds": 0.000008792,
+    "exit_code": 0,
+    "original_token_count": 113,
+    "output": "{\n  \"code_snapshot_current_and_hashes_match\": true,\n  \"input_snapshots_match_hashes\": true,\n  \"source_metrics_unchanged\": true,\n  \"negative_output_folder_created\": false,\n  \"all_final_valid\": true,\n  \"all_lineages_valid\": true,\n  \"invalid_reuse\": 0,\n  \"cached_exposures\": 140,\n  \"code_sha256\": \"3b0c29106dd489f011ce189241cb9f713253890cf83412ce52a98a6e42d833cc\",\n  \"input_sha256\": \"d8d3ea6ebff501e0a89390e9cb955246e846627fa9e4e96b750f9bd87a4b6abf\"\n}\n"
+  },
+  "classification": "Public human-clarified development case; five repeats of the same case, shared exact-choice parser, no AI policy",
+  "review": "Initial read-only review approved bounded development result with two audit gaps; both fixed, targeted provenance/byte-preservation tests pass within 145-test final suite.",
+  "limitations": {
+    "human_wait_ns": null,
+    "human_repair_ns": null,
+    "implementation_model_cost": "unmeasured; excluded",
+    "local_cost_usd": null,
+    "external_developer_reproduction": false
+  }
+}
