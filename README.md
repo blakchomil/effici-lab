@@ -123,6 +123,23 @@ Both matched the finite execution-count minimum. The original experiment was rer
 this study, and model calls/API charges were zero. Contract checks perform real recomputation and are
 charged through counts and timing. These single-run millisecond measurements do not prove a total-cost advantage.
 
+## Observed request: support-readiness evidence
+
+The [observed request case](examples/support-readiness/README.md) preserves a real maintainer request
+from this project's Codex conversation. The proposed readiness-report transformation is separately
+labelled as an agent interpretation; its meaning has not been independently confirmed as a benchmark target.
+
+```bash
+PYTHONPATH=. python3 examples/support-readiness/probe.py /tmp/my-new-readiness-run
+```
+
+The measured probe reuses two stages and executes one to retitle an actual report. It also records
+that licensing, maintenance and AI-credit fields are absent from the current report interface.
+That capability gap does not establish failure of strong deterministic reuse methods or a need for AI.
+A checklist with separately collected repository facts is a simpler alternative.
+[Actual observations](examples/support-readiness/runs/observed-02/result.json) include counts, timing and hashes;
+no human-time savings, external reproduction or model superiority is claimed.
+
 ## Result layout
 
 - `manifest.json`, `source.csv`, `dev_cases.json`, `code_snapshot/`: exact execution inputs and implementation.
@@ -144,8 +161,8 @@ The project's explicit choices are argparse for the CLI, dataclasses/manual boun
 ```bash
 uv sync --group dev
 uv run pytest -q
-uv run ruff check src tests
-uv run ruff format --check src tests
+uv run ruff check src tests examples
+uv run ruff format --check src tests examples
 uv run basedpyright
 ```
 
@@ -196,7 +213,11 @@ Those are program criteria, not evidence that this project will be accepted.
 The public repository is [blakchomil/effici-lab](https://github.com/blakchomil/effici-lab), with `main` as its default branch.
 The Phase 1 code, tests, fixtures and both recorded runs are published together.
 A fresh clone was executed successfully on 2026-10-10 KST and satisfied all 15 final contracts.
-The release license has not yet been selected; no LICENSE file is included.
+Source and associated documentation are licensed under [MIT](LICENSE).
+See [CONTRIBUTING.md](CONTRIBUTING.md) for reproduction receipts and contributions, and
+[CHANGELOG.md](CHANGELOG.md) for the initial development release scope.
+The [support-readiness record](docs/support-readiness.md) separates implemented preparation from
+unestablished external use, sustained maintenance and credit need.
 
 ## Prior-art boundary
 

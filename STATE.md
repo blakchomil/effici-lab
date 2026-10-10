@@ -16,7 +16,7 @@ Phase 4 외부 통합을 완료했다고 주장하지 않는다.
 - 실제 작업 경로: `/Users/yangjunmo/effici-lab/intent-revalidation-starter`.
 - 이미 압축 해제된 자료 폴더를 독립 프로젝트로 사용했고 이 안에 `git init`을 실행했다.
 - 공개 GitHub 저장소: [blakchomil/effici-lab](https://github.com/blakchomil/effici-lab).
-- 기본 브랜치는 `main`, 원격은 `origin`이며 로컬 브랜치가 `origin/main`을 추적한다. 라이선스는 아직 미정이다.
+- 기본 브랜치는 `main`, 원격은 `origin`이며 로컬 브랜치가 `origin/main`을 추적한다. 현재 라이선스는 MIT다.
 - 프로젝트의 AGENTS.md, RESEARCH.md, 초기 STATE.md, START_HERE.md, README.md와 개발 입력을 읽었다.
 - 기본 Codex home의 `/Users/yangjunmo/.codex/AGENTS.md`는 실제 0바이트였다.
   AGENTS.override.md와 /, /Users, /Users/yangjunmo, /Users/yangjunmo/effici-lab의 AGENTS.md는 없었다.
@@ -143,7 +143,7 @@ uv run basedpyright
 ## 후속 진입 실험: 연구 보고서 변경
 
 사용자 선택: 추가 유료 API 없이 현재 Codex 환경에서 가능한 범위를 사용하고,
-이 연구에서 만든 보고서·실험 산출물 변경을 우선한다. 라이선스 선택은 아직 미정이다.
+이 연구에서 만든 보고서·실험 산출물 변경을 우선한다. 이 실험 당시 라이선스는 미정이었다.
 
 - 원본: 보존된 `runs/phase1-20261010-01/metrics.json`의 실제 15개 측정 결과.
 - 작업: select → summary → render. 원본 Phase 1 실행을 다시 돌리지 않는다.
@@ -208,3 +208,27 @@ CI를 Linux/Python 3.13과 macOS/Python 3.14에 구성했다. 고정 커밋의 A
 후속 코드·테스트·세 실행 기록·문서와 CI를 공개 저장소 main에 게시했다.
 관측 범위는 구조화된 요구·동기 로컬 실행·공개 개발 사례다. 자연어 해석, 숨겨진 평가,
 외부 워크플로와 원격 병렬 복구는 미검증이다.
+
+## 지원 준비와 관측된 요청 사례
+
+사용자가 라이선스·유지관리·실제 효용의 증거 부족을 지적하고 지금 보완하도록 요청했다.
+MIT LICENSE와 프로젝트 메타데이터, CONTRIBUTING.md, CHANGELOG.md, 초기 개발 릴리스 자료를 준비했다.
+지속적인 유지관리 이력이나 외부 이용자를 새로 확보했다고 주장하지 않는다.
+
+실제 요청 원문과 별도로 제안한 보고서 변경 해석을 [사례](examples/support-readiness/request.md)에 기록했다.
+실제 baseline snapshot은 `ffb7d62771f3e1e3801ec783e5a9696d8ac291a7`이며 당시 커밋 6개와 CI 성공,
+라이선스·이슈·PR·릴리스 없음이 확인됐다. 당시 관측을 현재 상태로 재작성하지 않는다.
+
+[실제 probe 결과](examples/support-readiness/runs/observed-02/result.json): 초기 3단계 생성 뒤 제목 변경은
+B1이 2단계를 재사용하고 1단계를 실행했다. 독립 감사에서 최종 역할 계약 충족과 잘못된 사용 0건을 확인했다.
+라이선스·유지관리·크레딧 필요성 열 3개는 현재 interface가 지원하지 않아 명시적으로 거절됐다.
+이는 구조화된 입력·출력 기능의 부족이며 강한 재사용 정책의 실패나 AI 필요성으로 해석하지 않는다.
+별도 저장소 사실을 입력으로 제공한 단순 체크리스트가 대안이다. 인간 작업 시간 절감은 측정하지 않았다.
+
+실행: `PYTHONPATH=. uv run examples/support-readiness/probe.py examples/support-readiness/runs/observed-02`.
+원본 실험 재실행·평가 대상 모델 호출·외부 API 비용은 0이며 구현 대화의 모델 비용은 측정 범위에서 제외했다.
+[실제 검증 출력](examples/support-readiness/runs/observed-02/verification.json)도 보존했다.
+CI와 타입·정적 검사 범위에 실제 probe 코드를 포함했고, 과거 코드 스냅샷만 검사 대상에서 제외했다.
+
+자연어 의미의 인간 확인과 공정한 해석·clarification 비교, 외부 개발자의 독립 재현은 공개 후속 과제로 남는다.
+현재 보고서 변환의 목표는 연구자가 해석한 것이며 자연어 정확성 평가를 마친 정답으로 취급하지 않는다.
