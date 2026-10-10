@@ -1,0 +1,452 @@
+{
+  "date": "2026-10-10 KST",
+  "tested_revision": "27f0fda46379a7ed168a97346f84a11cb7793194",
+  "reproduction_actor": "Codex maintainer agent; not an independent external developer",
+  "fresh_clone_path": "/tmp/effici-lab-v010-raEefQ/checkout",
+  "checks": [
+    {
+      "command": "uv run pytest -q --junitxml=/tmp/effici-lab-v010-raEefQ/verification-tests.xml",
+      "chunk_id": "e50795",
+      "wall_time_seconds": 2.0551275,
+      "exit_code": 0,
+      "original_token_count": 45,
+      "output": "........................................................................ [ 93%]\n.....                                                                    [100%]\n77 passed in 1.05s\n"
+    },
+    {
+      "command": "uv run ruff check src tests examples",
+      "chunk_id": "e6010d",
+      "wall_time_seconds": 1.180579917,
+      "exit_code": 0,
+      "original_token_count": 5,
+      "output": "All checks passed!\n"
+    },
+    {
+      "command": "uv run ruff format --check src tests examples",
+      "chunk_id": "080b9f",
+      "wall_time_seconds": 1.17857875,
+      "exit_code": 0,
+      "original_token_count": 7,
+      "output": "39 files already formatted\n"
+    },
+    {
+      "command": "uv run basedpyright",
+      "chunk_id": "5405fa",
+      "wall_time_seconds": 6.027901667,
+      "exit_code": 0,
+      "original_token_count": 8,
+      "output": "0 errors, 0 warnings, 0 notes\n"
+    },
+    {
+      "command": "python3 -m src.intent_revalidation --output /tmp/effici-lab-v010-raEefQ/evidence --run-id phase1",
+      "chunk_id": "e7e292",
+      "wall_time_seconds": 0.100819459,
+      "exit_code": 0,
+      "original_token_count": 26,
+      "output": "Final contracts satisfied: 15/15\nReport: /private/tmp/effici-lab-v010-raEefQ/evidence/phase1/report.md\n"
+    },
+    {
+      "command": "python3 -m src.intent_revalidation.report_workflow --output /tmp/effici-lab-v010-raEefQ/evidence --run-id report",
+      "chunk_id": "b26842",
+      "wall_time_seconds": 0.09670275,
+      "exit_code": 0,
+      "original_token_count": 29,
+      "output": "Report workflow contracts satisfied: 12/12\nReport: /private/tmp/effici-lab-v010-raEefQ/evidence/report/report.md\n"
+    },
+    {
+      "command": "PYTHONPATH=. python3 examples/support-readiness/probe.py /tmp/effici-lab-v010-raEefQ/evidence/observed-request",
+      "chunk_id": "709634",
+      "wall_time_seconds": 0.00799325,
+      "exit_code": 0,
+      "original_token_count": 0,
+      "output": ""
+    }
+  ],
+  "hosted_ci": {
+    "conclusion": "success",
+    "headSha": "27f0fda46379a7ed168a97346f84a11cb7793194",
+    "jobs": [
+      {
+        "completedAt": "2026-10-10T06:23:08Z",
+        "conclusion": "success",
+        "databaseId": 114150881728,
+        "name": "verify (macos-latest, 3.14)",
+        "startedAt": "2026-10-10T06:22:44Z",
+        "status": "completed",
+        "steps": [
+          {
+            "completedAt": "2026-10-10T06:22:49Z",
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "startedAt": "2026-10-10T06:22:45Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-10T06:22:50Z",
+            "conclusion": "success",
+            "name": "Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+            "number": 2,
+            "startedAt": "2026-10-10T06:22:49Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-10T06:22:51Z",
+            "conclusion": "success",
+            "name": "Run astral-sh/setup-uv@1c37ad07a6a961277cf70c0d37d6f313000f5884",
+            "number": 3,
+            "startedAt": "2026-10-10T06:22:50Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-10T06:22:54Z",
+            "conclusion": "success",
+            "name": "Run uv sync --locked --group dev",
+            "number": 4,
+            "startedAt": "2026-10-10T06:22:51Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-10T06:22:56Z",
+            "conclusion": "success",
+            "name": "Run uv run pytest -q",
+            "number": 5,
+            "startedAt": "2026-10-10T06:22:54Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-10T06:22:56Z",
+            "conclusion": "success",
+            "name": "Run uv run ruff check src tests examples",
+            "number": 6,
+            "startedAt": "2026-10-10T06:22:56Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-10T06:22:56Z",
+            "conclusion": "success",
+            "name": "Run uv run ruff format --check src tests examples",
+            "number": 7,
+            "startedAt": "2026-10-10T06:22:56Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-10T06:22:59Z",
+            "conclusion": "success",
+            "name": "Run uv run basedpyright",
+            "number": 8,
+            "startedAt": "2026-10-10T06:22:56Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-10T06:22:59Z",
+            "conclusion": "success",
+            "name": "Run the original experiment",
+            "number": 9,
+            "startedAt": "2026-10-10T06:22:59Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-10T06:22:59Z",
+            "conclusion": "success",
+            "name": "Run the report follow-up study",
+            "number": 10,
+            "startedAt": "2026-10-10T06:22:59Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-10T06:22:59Z",
+            "conclusion": "success",
+            "name": "Reproduce the observed request boundary",
+            "number": 11,
+            "startedAt": "2026-10-10T06:22:59Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-10T06:23:04Z",
+            "conclusion": "success",
+            "name": "Post Run astral-sh/setup-uv@1c37ad07a6a961277cf70c0d37d6f313000f5884",
+            "number": 21,
+            "startedAt": "2026-10-10T06:22:59Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-10T06:23:05Z",
+            "conclusion": "success",
+            "name": "Post Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+            "number": 22,
+            "startedAt": "2026-10-10T06:23:04Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-10T06:23:05Z",
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 23,
+            "startedAt": "2026-10-10T06:23:05Z",
+            "status": "completed"
+          }
+        ],
+        "url": "https://github.com/blakchomil/effici-lab/actions/runs/38030712011/job/114150881728"
+      },
+      {
+        "completedAt": "2026-10-10T06:22:55Z",
+        "conclusion": "success",
+        "databaseId": 114150881835,
+        "name": "verify (ubuntu-latest, 3.13)",
+        "startedAt": "2026-10-10T06:22:38Z",
+        "status": "completed",
+        "steps": [
+          {
+            "completedAt": "2026-10-10T06:22:40Z",
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "startedAt": "2026-10-10T06:22:39Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-10T06:22:41Z",
+            "conclusion": "success",
+            "name": "Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+            "number": 2,
+            "startedAt": "2026-10-10T06:22:40Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-10T06:22:42Z",
+            "conclusion": "success",
+            "name": "Run astral-sh/setup-uv@1c37ad07a6a961277cf70c0d37d6f313000f5884",
+            "number": 3,
+            "startedAt": "2026-10-10T06:22:41Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-10T06:22:44Z",
+            "conclusion": "success",
+            "name": "Run uv sync --locked --group dev",
+            "number": 4,
+            "startedAt": "2026-10-10T06:22:42Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-10T06:22:46Z",
+            "conclusion": "success",
+            "name": "Run uv run pytest -q",
+            "number": 5,
+            "startedAt": "2026-10-10T06:22:44Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-10T06:22:46Z",
+            "conclusion": "success",
+            "name": "Run uv run ruff check src tests examples",
+            "number": 6,
+            "startedAt": "2026-10-10T06:22:46Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-10T06:22:46Z",
+            "conclusion": "success",
+            "name": "Run uv run ruff format --check src tests examples",
+            "number": 7,
+            "startedAt": "2026-10-10T06:22:46Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-10T06:22:49Z",
+            "conclusion": "success",
+            "name": "Run uv run basedpyright",
+            "number": 8,
+            "startedAt": "2026-10-10T06:22:46Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-10T06:22:49Z",
+            "conclusion": "success",
+            "name": "Run the original experiment",
+            "number": 9,
+            "startedAt": "2026-10-10T06:22:49Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-10T06:22:49Z",
+            "conclusion": "success",
+            "name": "Run the report follow-up study",
+            "number": 10,
+            "startedAt": "2026-10-10T06:22:49Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-10T06:22:49Z",
+            "conclusion": "success",
+            "name": "Reproduce the observed request boundary",
+            "number": 11,
+            "startedAt": "2026-10-10T06:22:49Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-10T06:22:52Z",
+            "conclusion": "success",
+            "name": "Post Run astral-sh/setup-uv@1c37ad07a6a961277cf70c0d37d6f313000f5884",
+            "number": 21,
+            "startedAt": "2026-10-10T06:22:49Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-10T06:22:53Z",
+            "conclusion": "success",
+            "name": "Post Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+            "number": 22,
+            "startedAt": "2026-10-10T06:22:52Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-10T06:22:53Z",
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 23,
+            "startedAt": "2026-10-10T06:22:53Z",
+            "status": "completed"
+          }
+        ],
+        "url": "https://github.com/blakchomil/effici-lab/actions/runs/38030712011/job/114150881835"
+      }
+    ],
+    "status": "completed",
+    "url": "https://github.com/blakchomil/effici-lab/actions/runs/38030712011"
+  },
+  "observed_request_probe": {
+    "accepted_readiness_columns": [],
+    "ai_advantage_demonstrated": false,
+    "ai_implementation_session_cost": "not measured; excluded from runtime probe",
+    "argv": [
+      "examples/support-readiness/probe.py",
+      "/tmp/effici-lab-v010-raEefQ/evidence/observed-request"
+    ],
+    "audit": {
+      "actual_use_events": 6,
+      "cache_use_events": 4,
+      "final_satisfied": true,
+      "invalid_reuse_events": 0,
+      "invalid_use_events": 0,
+      "lineage_violations": 0,
+      "publication_count": 1
+    },
+    "evaluated_model_calls": 0,
+    "evaluated_model_tokens": 0,
+    "external_api_cost_usd": 0,
+    "finding": "Current report interface lacks readiness fields and repository-fact inputs",
+    "initial_generation_counts": {
+      "bind": 3,
+      "consume": 2,
+      "decisions": 3,
+      "executions": 3,
+      "hash_operations": 6,
+      "key_computations": 6,
+      "preflight": 1,
+      "publish": 1
+    },
+    "input_hashes": {
+      "probe.py": "2ce23e7e70fd04f5d68979a6188204298fe8a6ac190489699c3e067ca97ebc1c",
+      "repository-snapshot.json": "b2b397c39f7d9de2d8d5371cd1489d89ed37bfccc13b28f9f13fa1ad522ebad3",
+      "request.md": "346c78c0a9a9e8d6f3fa5cb57b29d93c23ac24d1f7a2f9da5842a17a85dc0615"
+    },
+    "invocation": "PYTHONPATH=. uv run examples/support-readiness/probe.py OUTPUT_DIRECTORY",
+    "local_cost_usd": null,
+    "original_experiment_reruns": 0,
+    "probe_observations_match": true,
+    "probe_wall_ns_before_final_write": 13358125,
+    "rejected_readiness_columns": [
+      {
+        "error": "'license' is not a valid Column",
+        "field": "license"
+      },
+      {
+        "error": "'maintenance_evidence' is not a valid Column",
+        "field": "maintenance_evidence"
+      },
+      {
+        "error": "'ai_credit_need' is not a valid Column",
+        "field": "ai_credit_need"
+      }
+    ],
+    "requirements_fields": [
+      "case_ids",
+      "title",
+      "columns"
+    ],
+    "scenario": "Observed critique with an agent-derived support-readiness report target",
+    "source_file_hashes": {
+      "src/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "src/intent_revalidation/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "src/intent_revalidation/__main__.py": "4c1ccc8570b86bd56c6f59ceaf22c55a7f49b200552c61d462874f661b395cd0",
+      "src/intent_revalidation/audit.py": "2b0e0231222bc196fe2f2d05d890d37610f2bdc458261019f684b690a6359fb5",
+      "src/intent_revalidation/content.py": "3542ff41f10fc7043507337ccd227fcda1d20b3610dde5fbf66e092b71ea7572",
+      "src/intent_revalidation/contracts.py": "fe2f66d9d6f4ee6d98db0d7883a43839161a00911d30f5ec0f42c1a776fdbd5d",
+      "src/intent_revalidation/evaluation.py": "4d1735fb961d3bf40db7d27a7d10bbbae89c5ec9ca1f10548cc81b5570b530e3",
+      "src/intent_revalidation/execution.py": "aba00110e48ad6f9f924f77fb46d7fc7439ff115712cbb7f6be260b64e01c73a",
+      "src/intent_revalidation/experiment.py": "d74670c080ee7f40201191edf17244399cecfee25846e7fcf7133ff00885bc34",
+      "src/intent_revalidation/fixtures.py": "5a1ebca8d72009b886ef229a4fe766a94d921d6f9e60104534447cfa5ac100e8",
+      "src/intent_revalidation/model.py": "ddeaf1306ab9f3de623016acda818aa0517b46cb34dbb0556562a2b1cbba85ea",
+      "src/intent_revalidation/pipeline.py": "c24a27a7d5c7f0c8bd776671fc999f44e1df8bfbcb9d7a839f88246d430ac9e3",
+      "src/intent_revalidation/policies.py": "10ee45310f6a7a5fd625fc0f0e43e3e790b7a936ac163c4b61c934472583e98a",
+      "src/intent_revalidation/reference.py": "f921f75eb7546c35e5dc55d6710c548387c7f0c64762d308804954adea03dbf3",
+      "src/intent_revalidation/replay.py": "d1debaf9e08897784e316fb5a53761ef787e3c6995fb099ccda3a6268d009438",
+      "src/intent_revalidation/report_workflow/__init__.py": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "src/intent_revalidation/report_workflow/__main__.py": "76f9daccaa3bed80859b366687e7169732d959f15b43aa13d7510a510fa05faa",
+      "src/intent_revalidation/report_workflow/audit.py": "c2a3ff1765a720f3e7e37720ca87ec13dd659ff6b997f78e92594bd3c9e2f179",
+      "src/intent_revalidation/report_workflow/cache.py": "30803443b3076f8a0e09c0b914e659fb633a9a1bd6caba93aac0025e9ec488f2",
+      "src/intent_revalidation/report_workflow/evaluation.py": "ec746a425ef0130e9958e2e7b395b421f88274838f16ffbaf3a32124622e65d6",
+      "src/intent_revalidation/report_workflow/inputs.py": "016100e572158dcc720bd78e2c0ce0ac4482352d9f59095c3bfc9ad47b113b5b",
+      "src/intent_revalidation/report_workflow/model.py": "320d845cbee6d6bc9be564408a76c88bd6468261d119f6ba2d50e0fc7a5738c4",
+      "src/intent_revalidation/report_workflow/operations.py": "0aa41fcfb14b24e4feffff717dc72f0bf6d7114638c3d2bbe780985d71f77d23",
+      "src/intent_revalidation/report_workflow/outcomes.py": "322b1058ec67cc036daffe685dc889921f381e233f1860e8178905572d2b1691",
+      "src/intent_revalidation/report_workflow/reference.py": "8bf76314d3b894b6e641bf04a2c16603d3660771d3918487c24b37747d8c1420",
+      "src/intent_revalidation/report_workflow/reporting.py": "b94cd7949c283c00f020caaffdbeabf48e6a1ba3a156e22da33af988d06dd4b3",
+      "src/intent_revalidation/report_workflow/storage.py": "954a3eae9a48fa2a767a06f1292b2e3a06e7a29304bf1c807e26464776f4f013",
+      "src/intent_revalidation/report_workflow/study.py": "7e958a3d1b1a9e28a4dce8086bded214796ee22123b7161bf90e0f7671d182fb",
+      "src/intent_revalidation/reporting.py": "b73e1f53b6c74576416c84f3b2957a2db9a9dbac1d3ca0b4f60924dd9d8c0f16",
+      "src/intent_revalidation/storage.py": "a70aa697b3e66de0eadb72cb4a229d0fe868fd8c2fd6adc9a2a4a7282c53cbe8"
+    },
+    "source_sha256": "ade7dd40dee5b3dcfb782a1141ebc89da7f57a0d509deecdf8a0d1100418eb20",
+    "strong_deterministic_baseline_failure": false,
+    "supported_columns": [
+      "policy",
+      "valid_cases",
+      "executions",
+      "invalid_reuse"
+    ],
+    "title_change_counts": {
+      "bind": 3,
+      "consume": 2,
+      "decisions": 3,
+      "executions": 1,
+      "hash_operations": 4,
+      "integrity_checks": 2,
+      "key_comparisons": 3,
+      "key_computations": 4,
+      "preflight": 1,
+      "publish": 1,
+      "reuse": 2
+    },
+    "title_change_durations_ns": {
+      "bind": 159875,
+      "consume": 100000,
+      "decisions": 359876,
+      "executions": 375708,
+      "hash_operations": 5750,
+      "integrity_checks": 69500,
+      "key_comparisons": 1708,
+      "key_computations": 141750,
+      "preflight": 29125,
+      "publish": 46416,
+      "reuse": 834
+    },
+    "title_change_wall_ns": 1276542
+  },
+  "issues": [
+    "https://github.com/blakchomil/effici-lab/issues/1",
+    "https://github.com/blakchomil/effici-lab/issues/2"
+  ],
+  "limits": "Public development inputs. No paid API run, evaluated AI advantage, external reproduction or sustained maintenance history is demonstrated."
+}

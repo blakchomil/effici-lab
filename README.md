@@ -214,10 +214,16 @@ The public repository is [blakchomil/effici-lab](https://github.com/blakchomil/e
 The Phase 1 code, tests, fixtures and both recorded runs are published together.
 A fresh clone was executed successfully on 2026-10-10 KST and satisfied all 15 final contracts.
 Source and associated documentation are licensed under [MIT](LICENSE).
+The [v0.1.0 development prerelease](https://github.com/blakchomil/effici-lab/releases/tag/v0.1.0)
+tags the exact verified commit `27f0fda46379a7ed168a97346f84a11cb7793194`.
+Its [verification receipt](docs/releases/v0.1.0-verification.json) records a fresh maintainer-agent clone,
+77 passing tests, all three executable examples, and successful Linux/macOS CI at that revision.
 See [CONTRIBUTING.md](CONTRIBUTING.md) for reproduction receipts and contributions, and
 [CHANGELOG.md](CHANGELOG.md) for the initial development release scope.
 The [support-readiness record](docs/support-readiness.md) separates implemented preparation from
 unestablished external use, sustained maintenance and credit need.
+Public next work: [confirmed requirements and controls](https://github.com/blakchomil/effici-lab/issues/1)
+and [independent external reproduction](https://github.com/blakchomil/effici-lab/issues/2).
 
 ## Prior-art boundary
 

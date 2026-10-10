@@ -212,7 +212,7 @@ CI를 Linux/Python 3.13과 macOS/Python 3.14에 구성했다. 고정 커밋의 A
 ## 지원 준비와 관측된 요청 사례
 
 사용자가 라이선스·유지관리·실제 효용의 증거 부족을 지적하고 지금 보완하도록 요청했다.
-MIT LICENSE와 프로젝트 메타데이터, CONTRIBUTING.md, CHANGELOG.md, 초기 개발 릴리스 자료를 준비했다.
+MIT LICENSE와 프로젝트 메타데이터, CONTRIBUTING.md, CHANGELOG.md, 초기 개발 릴리스 자료를 추가하고 공개했다.
 지속적인 유지관리 이력이나 외부 이용자를 새로 확보했다고 주장하지 않는다.
 
 실제 요청 원문과 별도로 제안한 보고서 변경 해석을 [사례](examples/support-readiness/request.md)에 기록했다.
@@ -232,3 +232,18 @@ CI와 타입·정적 검사 범위에 실제 probe 코드를 포함했고, 과�
 
 자연어 의미의 인간 확인과 공정한 해석·clarification 비교, 외부 개발자의 독립 재현은 공개 후속 과제로 남는다.
 현재 보고서 변환의 목표는 연구자가 해석한 것이며 자연어 정확성 평가를 마친 정답으로 취급하지 않는다.
+
+2026-10-10 KST 공개 보완 완료:
+
+- GitHub API가 MIT License를 인식했다.
+- [공개 과제 #1](https://github.com/blakchomil/effici-lab/issues/1): 관측 요청의 의미 확인과 결정론적 해석·질문 대조군.
+- [공개 과제 #2](https://github.com/blakchomil/effici-lab/issues/2): 외부 개발자의 독립 재현과 실제 기록.
+- [v0.1.0 초기 개발 prerelease](https://github.com/blakchomil/effici-lab/releases/tag/v0.1.0)를 게시했다.
+  태그는 실제 검증한 `27f0fda46379a7ed168a97346f84a11cb7793194`를 가리킨다.
+- 이 커밋의 새 clone에서 77 tests passed in 1.05s, Ruff/formatting/type 검사, 원본 15/15·보고서 12/12·관측 probe exit 0.
+- [같은 커밋의 Linux/macOS CI](https://github.com/blakchomil/effici-lab/actions/runs/38030712011)에서 모든 단계가 성공했다.
+- [실제 검증 출력](docs/releases/v0.1.0-verification.json)과 테스트 XML을 릴리스 파일로 첨부했다.
+  새 clone은 유지관리자 에이전트의 실행이며 외부 개발자의 독립 재현으로 세지 않는다.
+
+추가 유료 API 호출은 하지 않았다. 이 보완은 초기 공개 준비이며 지속적 유지관리·외부 이용·AI 크레딧 필요성·
+지원 프로그램 선정을 입증하지 않는다. 실제 외부 참여가 필요한 과제 #2는 열린 상태로 유지한다.
