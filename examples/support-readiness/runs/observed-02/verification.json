@@ -1,0 +1,17 @@
+{
+  "scenario": "Authentic user request with separately labelled agent-derived report target",
+  "checks": [
+    {"invocation": "PYTHONPATH=. uv run examples/support-readiness/probe.py examples/support-readiness/runs/observed-02", "exit_code": 0, "stdout": "", "binary_observable": "result.json probe_observations_match=true, audit.final_satisfied=true, executions=1, reuse=2, three rejected columns", "artifact": "result.json"},
+    {"invocation": "uv run ruff check examples/support-readiness/probe.py", "exit_code": 0, "stdout": "All checks passed!\n"},
+    {"invocation": "uv run ruff format --check examples/support-readiness/probe.py", "exit_code": 0, "stdout": "1 file already formatted\n"},
+    {"invocation": "uv run basedpyright examples/support-readiness/probe.py", "exit_code": 0, "stdout": "0 errors, 0 warnings, 0 notes\n"},
+    {"invocation": "uv run python /Users/yangjunmo/.codex/plugins/cache/sisyphuslabs/omo/5.1.29/skills/programming/scripts/python/check-no-excuse-rules.py examples/support-readiness/probe.py", "exit_code": 0, "stdout": "no violations in 1 file(s)\n"},
+    {"invocation": "PYTHONPATH=. uv run examples/support-readiness/probe.py examples/support-readiness/runs/observed-02", "scenario": "Repeat against existing output", "exit_code": 1, "binary_observable": "FileExistsError from output.mkdir before any output writes"}
+  ],
+  "limits": [
+    "No model policy evaluated; implementation-agent work was not benchmarked",
+    "Existing report contract satisfaction does not establish support-readiness report satisfaction",
+    "Earlier observed-01 is retained with its script snapshot; runtime passed before final static cleanup",
+    "No new unit tests were added for this bounded executable development probe"
+  ]
+}

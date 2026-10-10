@@ -28,11 +28,12 @@ jobs:
           enable-cache: true
       - run: uv sync --locked --group dev
       - run: uv run pytest -q
-      - run: uv run ruff check src tests
-      - run: uv run ruff format --check src tests
+      - run: uv run ruff check src tests examples
+      - run: uv run ruff format --check src tests examples
       - run: uv run basedpyright
       - name: Run the original experiment
         run: uv run python -m src.intent_revalidation --output "$RUNNER_TEMP/phase1"
       - name: Run the report follow-up study
         run: uv run python -m src.intent_revalidation.report_workflow --output "$RUNNER_TEMP/report-study"
-
+      - name: Reproduce the observed request boundary
+        run: PYTHONPATH=. uv run python examples/support-readiness/probe.py "$RUNNER_TEMP/observed-request"

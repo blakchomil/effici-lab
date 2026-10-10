@@ -1,0 +1,31 @@
+{
+  "observed_at_utc": "2026-10-10T06:14:51Z",
+  "revision": "ffb7d62771f3e1e3801ec783e5a9696d8ac291a7",
+  "repository": "https://github.com/blakchomil/effici-lab",
+  "scope": "Historical observations before the support-readiness changes; not current status",
+  "observations": [
+    {"command": "git rev-list --count ffb7d62771f3e1e3801ec783e5a9696d8ac291a7", "exit_code": 0, "stdout": "6\n"},
+    {"command": "git ls-tree --name-only ffb7d62771f3e1e3801ec783e5a9696d8ac291a7", "exit_code": 0, "stdout": ".github\n.gitignore\nAGENTS.md\nREADME.md\nRESEARCH.md\nSTART_HERE.md\nSTATE.md\nexamples\npyproject.toml\nruns\nsrc\ntests\nuv.lock\n"},
+    {"command": "gh issue list --state all --json number,title,url", "exit_code": 0, "stdout": "[]\n"},
+    {"command": "gh pr list --state all --json number,title,url", "exit_code": 0, "stdout": "[]\n"},
+    {"command": "gh release list --json tagName,name,isDraft", "exit_code": 0, "stdout": "[]\n"}
+  ],
+  "ci_observation": {
+    "command": "gh run view 38029307448 --json headSha,conclusion,url,jobs",
+    "exit_code": 0,
+    "projection_of_observed_output": {
+      "headSha": "ffb7d62771f3e1e3801ec783e5a9696d8ac291a7",
+      "conclusion": "success",
+      "url": "https://github.com/blakchomil/effici-lab/actions/runs/38029307448",
+      "jobs": [
+        {"name": "verify (ubuntu-latest, 3.13)", "conclusion": "success"},
+        {"name": "verify (macos-latest, 3.14)", "conclusion": "success"}
+      ]
+    }
+  },
+  "interpretation": {
+    "license_at_revision": "No root license file in the observed tree",
+    "maintenance_at_observation": "Six commits and successful CI; no issues, PRs or releases in returned lists",
+    "ai_credit_need": "Not established by these repository observations"
+  }
+}

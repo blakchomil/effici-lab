@@ -1,6 +1,7 @@
 [project]
 name = "intent-revalidation-research"
 version = "0.1.0"
+license = "MIT"
 description = "Local development comparison of artifact reuse after requirement changes"
 requires-python = ">=3.13"
 dependencies = []
@@ -20,13 +21,14 @@ filterwarnings = ["error"]
 [tool.basedpyright]
 typeCheckingMode = "all"
 pythonVersion = "3.13"
-include = ["src", "tests"]
-exclude = ["**/__pycache__", "**/.venv"]
+include = ["src", "tests", "examples"]
+exclude = ["**/__pycache__", "**/.venv", "examples/support-readiness/runs"]
 reportUnnecessaryComparison = "none"
 
 [tool.ruff]
 target-version = "py313"
 line-length = 100
+extend-exclude = ["examples/support-readiness/runs"]
 
 [tool.ruff.lint]
 select = ["ALL"]
