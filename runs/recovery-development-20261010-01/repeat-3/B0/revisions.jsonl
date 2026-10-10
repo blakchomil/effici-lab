@@ -1,0 +1,8 @@
+{"policy":"B0","requirements":{"case_ids":["D1","D2","D3","D4","D5"],"columns":["policy","valid_cases","executions","invalid_reuse"],"title":"Phase 1 results"},"revision":"S0"}
+{"policy":"B0","requirements":{"case_ids":["D1","D2","D3","D4","D5"],"columns":["policy","valid_cases","executions","invalid_reuse"],"title":"Phase 1 results"},"revision":"S1"}
+{"policy":"B0","requirements":{"case_ids":["D1","D2","D3","D4","D5"],"columns":["policy","valid_cases","executions","invalid_reuse"],"title":"Recovery comparison"},"revision":"E1"}
+{"policy":"B0","requirements":{"case_ids":["D1","D2","D3","D4","D5"],"columns":["policy","valid_cases","executions","invalid_reuse"],"title":"Recovery comparison"},"revision":"E2"}
+{"policy":"B0","requirements":{"case_ids":["D1","D2","D3","D4","D5"],"columns":["policy","valid_cases","executions","invalid_reuse"],"title":"Recovery comparison"},"revision":"E3"}
+{"policy":"B0","requirements":{"case_ids":["D1","D2","D3","D4","D5"],"columns":["policy","valid_cases","executions","invalid_reuse"],"title":"Recovery comparison"},"revision":"E4"}
+{"policy":"B0","requirements":{"case_ids":["D1","D2","D3","D4","D5"],"columns":["policy","valid_cases","executions","invalid_reuse"],"title":"Phase 1 results"},"revision":"E5"}
+{"policy":"B0","requirements":{"case_ids":["D1","D2","D3","D4","D5"],"columns":["policy","valid_cases","executions","invalid_reuse"],"title":"Phase 1 results"},"revision":"E6"}

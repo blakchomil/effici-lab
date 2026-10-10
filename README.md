@@ -175,6 +175,42 @@ Human time, development-model usage and dollar costs are unmeasured. Millisecond
 establish stable or total-cost savings. Simple clarified controls suffice for this case.
 The final local suite has 145 passing tests and strict checks. Historical probe records are unchanged.
 
+## Between-revision cache recovery
+
+A bounded follow-up exercises the same report policies during sequential title changes,
+missing cached files, ordinary byte corruption and return to an earlier requirement.
+It uses unchanged actual Phase 1 metrics and a shared seed containing two genuinely
+executed historical candidates per role. Faults are injected only into independent clones;
+original bytes are archived before alteration. This is a public development trace, not an
+observed user incident or durable restart recovery.
+
+```bash
+python3 -m src.intent_revalidation.recovery_workflow
+python3 -m src.intent_revalidation.recovery_workflow --help
+PYTHONPATH=. python3 examples/recovery/audit_control.py --output /tmp/my-new-audit-control
+```
+
+[Protocol](examples/recovery/protocol-20261010.md) defines the six events and failure criteria.
+B0/B1/B2 retain their existing implementations and permissions. Each arm's history evolves
+from the same seed; three cyclic policy orders repeat the same trace. The independent oracle
+and actual-use audit run after each event, before later faults change artifact availability.
+The separate negative control must reject stale publication even after the correct final
+pointer is restored. Stage counts, recovery checks and wall times are distinct costs.
+
+[Actual report](runs/recovery-20261010-01/report.md) ·
+[Metrics](runs/recovery-20261010-01/metrics.json) ·
+[Manifest](runs/recovery-20261010-01/manifest.json) ·
+[Verification](runs/recovery-20261010-01/verification.json) ·
+[Negative control](runs/recovery-20261010-01/negative-control/result.json)
+
+All 54 current-revision audits passed. In each six-event repetition, B0 executed 18 stages;
+B1/B2 each executed 3, matching every finite post-fault stage-count bound. Each selective
+arm recorded zero invalid reuse across 90 cached exposures over the three repetitions.
+B1 incurred 60 integrity checks and B2 84 contract recomputations. The separate negative
+control correctly rejected the stale-publication history despite a restored final pointer.
+The final suite passed 163 tests and strict checks. Small observed timings do not establish
+stable speed or total-cost savings; human time, external use and AI advantage remain unmeasured.
+
 ## Result layout
 
 - `manifest.json`, `source.csv`, `dev_cases.json`, `code_snapshot/`: exact execution inputs and implementation.

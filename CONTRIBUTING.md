@@ -18,6 +18,7 @@ These commands create new run directories and preserve existing results:
 python3 -m src.intent_revalidation
 python3 -m src.intent_revalidation.report_workflow
 python3 -m src.intent_revalidation.readiness_workflow
+python3 -m src.intent_revalidation.recovery_workflow
 ```
 
 Expected CLI summaries are `Final contracts satisfied: 15/15` and
@@ -29,6 +30,20 @@ one actual maintainer clarification using frozen dated facts, with no runtime ne
 Rule/clarification labels share a confirmed-choice parser and do not evaluate natural-language
 generalization or the benefit of asking a question. Expected new stages are 4 for confirmed-B0
 and 1 for every B1/B2 arm, with zero invalid reuse. Each CLI prints its report path.
+
+The recovery CLI exercises six public development events in three cyclic repetitions
+of B0/B1/B2. It preserves original metrics and archives clone-local fault preimages.
+These are injected between-revision faults, not observed incidents or process restarts.
+It reports `Recovery workflow contracts satisfied: 54/54`. Per six-event repetition,
+expected B0 stage executions are 18 and B1/B2 are 3, with zero invalid actual reuse.
+Run its independent stale-publication control separately with a new directory:
+
+```bash
+PYTHONPATH=. python3 examples/recovery/audit_control.py --output /tmp/my-new-audit-control
+```
+
+A successful control observes audit rejection despite restoration of the correct final
+pointer. It is excluded from successful comparison-arm totals.
 
 Install the locked development environment and run the checks:
 

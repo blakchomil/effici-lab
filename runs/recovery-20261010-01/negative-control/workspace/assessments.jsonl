@@ -1,0 +1,3 @@
+{"artifact_id":"a-000000-select","reason":"role content and provenance satisfied","revision":"control-E1","step":"select","validity":"valid"}
+{"artifact_id":"a-000001-summary","reason":"role content and provenance satisfied","revision":"control-E1","step":"summary","validity":"valid"}
+{"artifact_id":"a-000002-render","reason":"role content mismatch","revision":"control-E1","step":"render","validity":"invalid"}

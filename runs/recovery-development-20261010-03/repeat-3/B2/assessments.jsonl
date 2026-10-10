@@ -1,0 +1,28 @@
+{"artifact_id":"a-000003-select","reason":"role content and provenance satisfied","revision":"E1","step":"select","validity":"valid"}
+{"artifact_id":"a-000004-summary","reason":"role content and provenance satisfied","revision":"E1","step":"summary","validity":"valid"}
+{"artifact_id":"a-000005-render","reason":"role content mismatch","revision":"E1","step":"render","validity":"invalid"}
+{"artifact_id":"a-000002-render","reason":"role content mismatch","revision":"E1","step":"render","validity":"invalid"}
+{"artifact_id":"a-000003-select","reason":"role content and provenance satisfied","revision":"E2","step":"select","validity":"valid"}
+{"artifact_id":"a-000004-summary","reason":"artifact bytes missing","revision":"E2","step":"summary","validity":"unknown"}
+{"artifact_id":"a-000001-summary","reason":"role content and provenance satisfied","revision":"E2","step":"summary","validity":"valid"}
+{"artifact_id":"a-000006-render","reason":"role content and provenance satisfied","revision":"E2","step":"render","validity":"valid"}
+{"artifact_id":"a-000003-select","reason":"role content and provenance satisfied","revision":"E3","step":"select","validity":"valid"}
+{"artifact_id":"a-000004-summary","reason":"artifact bytes missing","revision":"E3","step":"summary","validity":"unknown"}
+{"artifact_id":"a-000001-summary","reason":"artifact bytes missing","revision":"E3","step":"summary","validity":"unknown"}
+{"artifact_id":"a-000006-render","reason":"role content and provenance satisfied","revision":"E3","step":"render","validity":"valid"}
+{"artifact_id":"a-000003-select","reason":"role content and provenance satisfied","revision":"E4","step":"select","validity":"valid"}
+{"artifact_id":"a-000007-summary","reason":"role content and provenance satisfied","revision":"E4","step":"summary","validity":"valid"}
+{"artifact_id":"a-000006-render","reason":"byte integrity mismatch","revision":"E4","step":"render","validity":"invalid"}
+{"artifact_id":"a-000005-render","reason":"role content mismatch","revision":"E4","step":"render","validity":"invalid"}
+{"artifact_id":"a-000002-render","reason":"role content mismatch","revision":"E4","step":"render","validity":"invalid"}
+{"artifact_id":"a-000003-select","reason":"role content and provenance satisfied","revision":"E5","step":"select","validity":"valid"}
+{"artifact_id":"a-000007-summary","reason":"role content and provenance satisfied","revision":"E5","step":"summary","validity":"valid"}
+{"artifact_id":"a-000008-render","reason":"role content mismatch","revision":"E5","step":"render","validity":"invalid"}
+{"artifact_id":"a-000006-render","reason":"byte integrity mismatch","revision":"E5","step":"render","validity":"invalid"}
+{"artifact_id":"a-000005-render","reason":"role content and provenance satisfied","revision":"E5","step":"render","validity":"valid"}
+{"artifact_id":"a-000003-select","reason":"artifact bytes missing","revision":"E6","step":"select","validity":"unknown"}
+{"artifact_id":"a-000000-select","reason":"role content and provenance satisfied","revision":"E6","step":"select","validity":"valid"}
+{"artifact_id":"a-000007-summary","reason":"role content and provenance satisfied","revision":"E6","step":"summary","validity":"valid"}
+{"artifact_id":"a-000008-render","reason":"role content mismatch","revision":"E6","step":"render","validity":"invalid"}
+{"artifact_id":"a-000006-render","reason":"byte integrity mismatch","revision":"E6","step":"render","validity":"invalid"}
+{"artifact_id":"a-000005-render","reason":"role content and provenance satisfied","revision":"E6","step":"render","validity":"valid"}

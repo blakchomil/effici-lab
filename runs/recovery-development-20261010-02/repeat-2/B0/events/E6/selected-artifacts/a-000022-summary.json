@@ -1,0 +1,1 @@
+{"case_ids":["D1","D2","D3","D4","D5"],"rows":[{"executions":20,"invalid_reuse":0,"policy":"B0","total_cases":5,"valid_cases":5},{"executions":5,"invalid_reuse":0,"policy":"B1","total_cases":5,"valid_cases":5},{"executions":5,"invalid_reuse":0,"policy":"B2","total_cases":5,"valid_cases":5}],"source_sha256":"ade7dd40dee5b3dcfb782a1141ebc89da7f57a0d509deecdf8a0d1100418eb20"}

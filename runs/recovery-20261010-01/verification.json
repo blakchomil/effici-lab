@@ -1,0 +1,134 @@
+{
+  "observed_date": "2026-10-10 KST",
+  "scope": "Public synthetic between-revision cache-fault trace; existing deterministic policies unchanged",
+  "commands": [
+    {
+      "command": "uv run python -m src.intent_revalidation.recovery_workflow --run-id recovery-20261010-01",
+      "exit_code": 0,
+      "stdout": "Recovery workflow contracts satisfied: 54/54\nReport: /Users/yangjunmo/effici-lab/intent-revalidation-starter/runs/recovery-20261010-01/report.md\n"
+    },
+    {
+      "command": "PYTHONPATH=. uv run python examples/recovery/audit_control.py --output runs/recovery-20261010-01/negative-control",
+      "exit_code": 0,
+      "stdout": "Stale publication detected after restoration: True\n"
+    },
+    {
+      "command": "uv run pytest -q --junitxml=runs/recovery-20261010-01/verification-tests.xml",
+      "exit_code": 0,
+      "stdout": "163 passed in 3.26s\n",
+      "capture_note": "Final actual output line; progress dots omitted. Full structured results are in verification-tests.xml."
+    },
+    {
+      "command": "uv run ruff check src tests examples",
+      "exit_code": 0,
+      "stdout": "All checks passed!\n"
+    },
+    {
+      "command": "uv run ruff format --check src tests examples",
+      "exit_code": 0,
+      "stdout": "69 files already formatted\n"
+    },
+    {
+      "command": "uv run basedpyright",
+      "exit_code": 0,
+      "stdout": "0 errors, 0 warnings, 0 notes\n"
+    },
+    {
+      "command": "uv run python /Users/yangjunmo/.codex/plugins/cache/sisyphuslabs/omo/5.1.29/skills/programming/scripts/python/check-no-excuse-rules.py src/intent_revalidation/recovery_workflow tests/recovery_support.py tests/test_recovery_workflow.py tests/test_recovery_faults.py tests/test_recovery_controls.py tests/test_recovery_cli.py examples/recovery/audit_control.py",
+      "exit_code": 0,
+      "stdout": "no violations in 13 file(s)\n"
+    },
+    {
+      "command": "uv run python -m src.intent_revalidation.recovery_workflow --help",
+      "exit_code": 0,
+      "stdout": "usage: python3 -m src.intent_revalidation.recovery_workflow\n       [-h] [--metrics METRICS] [--output OUTPUT] [--run-id RUN_ID]\n\nPublic synthetic between-revision recovery study\n\noptions:\n  -h, --help         show this help message and exit\n  --metrics METRICS\n  --output OUTPUT\n  --run-id RUN_ID    unique folder name; existing runs are preserved\n"
+    },
+    {
+      "command": "uv run python -m src.intent_revalidation.recovery_workflow --run-id recovery-20261010-01",
+      "exit_code": 2,
+      "stderr": "Recovery comparison failed: [Errno 17] File exists: 'runs/recovery-20261010-01'\n"
+    },
+    {
+      "command": "uv run python -m src.intent_revalidation.recovery_workflow --metrics /tmp/effici-missing-source-20261010.json --output /tmp/effici-recovery-qa-20261010 --run-id missing",
+      "exit_code": 2,
+      "stderr": "Recovery comparison failed: [Errno 2] No such file or directory: '/tmp/effici-missing-source-20261010.json'\n"
+    },
+    {
+      "command": "uv run python -m src.intent_revalidation.recovery_workflow --metrics examples/support-readiness/current-facts-20261010.json --output /tmp/effici-recovery-qa-20261010 --run-id malformed",
+      "exit_code": 2,
+      "stderr": "Recovery comparison failed: JSON: expected array\n"
+    },
+    {
+      "command": "uv run python -m src.intent_revalidation.recovery_workflow --output /tmp/effici-recovery-qa-20261010 --run-id ../escape",
+      "exit_code": 2,
+      "stderr": "Recovery comparison failed: run-id: expected alphanumeric characters, dash or underscore\n"
+    },
+    {
+      "command": "test ! -e /tmp/effici-recovery-qa-20261010",
+      "exit_code": 0,
+      "stdout": ""
+    }
+  ],
+  "results": {
+    "same_trace_repetitions": 3,
+    "events_per_trace": 6,
+    "policies": 3,
+    "valid_current_revision_results": 54,
+    "B0_new_stages": 54,
+    "B1_new_stages": 9,
+    "B2_new_stages": 9,
+    "B1_invalid_reuse_events": 0,
+    "B1_cache_exposure_events": 90,
+    "B2_invalid_reuse_events": 0,
+    "B2_cache_exposure_events": 90,
+    "B1_integrity_checks": 60,
+    "B2_contract_recomputation_checks": 84,
+    "selective_per_repeat_execution_counts": [
+      1,
+      0,
+      1,
+      1,
+      0,
+      0
+    ],
+    "every_selective_result_matches_post_fault_execution_count_bound": true,
+    "invalid_actual_use_events": 0,
+    "lineage_violations": 0,
+    "separate_stale_publication_control": {
+      "audit_before_injection": true,
+      "audit_after_pointer_restoration": false,
+      "invalid_reuse_events": 1,
+      "lineage_violations": 1,
+      "publication_count": 3,
+      "correctly_detected": true,
+      "excluded_from_successful_arm_totals": true,
+      "new_stages": 4
+    }
+  },
+  "integrity": {
+    "executable_source_files": 49,
+    "current_code_matches_snapshot_and_hashes": true,
+    "code_sha256": "a2b5791a2c71ac6a8237b22a2d55057f2387375f275defe0609e58150e268522",
+    "original_phase1_metrics_unchanged": true,
+    "source_sha256": "ade7dd40dee5b3dcfb782a1141ebc89da7f57a0d509deecdf8a0d1100418eb20",
+    "frozen_protocol_matches_current_and_snapshot": true,
+    "protocol_sha256": "457e887b411afc61a8a0429f32d16c2e501c0604b93663bb96a66ae74c5ab81e",
+    "selected_artifact_byte_snapshots_verified": 162,
+    "archived_fault_preimages_verified": 48,
+    "archive_hash_violations": [],
+    "negative_control_script_and_snapshot_hash_match": true,
+    "prior_base_policies_and_published_phase1_results_have_no_git_diff": true
+  },
+  "self_review": {
+    "verdict": "PASS for declared bounded experiment",
+    "evidence": "Actual CLI, all event outputs, independent raw-source integration checks, attempt/exposure ledgers, archived bytes and negative control.",
+    "observed_limits": [
+      "Faults occur between revisions, not during a selected input read.",
+      "No process restart, concurrent workers or metadata+digest forgery evaluated.",
+      "One trace repeated; not independent incidents or external user evidence.",
+      "Nested costs overlap; no stable speed or total-cost claim.",
+      "Human time, implementation model usage and local dollar costs unmeasured."
+    ],
+    "next_one_task": "Independent external-person reproduction and actual workflow-use evidence under public issue 2."
+  }
+}

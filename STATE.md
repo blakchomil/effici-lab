@@ -4,7 +4,8 @@
 
 ## 현재 단계
 
-**Phase 1과 Phase 2 진입 비교 완료, 실제 유지관리자 요청의 인간 확인 후 지원 현황 보고서 비교도 실행했다.**
+**Phase 1과 Phase 2 진입 비교, 인간 확인 후 지원 현황 보고서 비교에 이어,
+연속 수정 중 캐시 파일 손실·손상의 복구 비교를 실제 실행했다.**
 
 연구 질문은 유지한다. 다섯 공개 개발 사례에서는 B1/B2가 실행 횟수 하한에 도달했다.
 보존된 Phase 1 metrics를 사용하는 두 번째 작업에서도 B1/B2가 실행 횟수 하한에 도달했다.
@@ -12,6 +13,9 @@ AI가 추가로 해결할 미해결 사례는 아직 관측되지 않았다. Pha
 Phase 4 외부 통합을 완료했다고 주장하지 않는다.
 새 사례에서도 공통 확인 답변 파서와 B1/B2가 충분했다. 같은 사례의 다섯 반복을 독립된 사용자 사례로
 세지 않으며, 확인 질문의 효과나 자연어 일반화도 입증하지 않았다.
+복구 비교는 동일한 공개 개발 trace의 3회 반복이다. B0/B1/B2 총 54개 event 결과가 모두
+요구를 충족했고, 반복당 새 단계는 B0=18회, B1/B2=각각 3회였다. 과거 후보 fallback과
+필요한 역할의 재생성으로 충분했다. 실제 사용자 장애, 프로세스 재시작, 외부 효용의 증거는 아니다.
 
 ## 프로젝트와 적용 지침
 
@@ -305,3 +309,71 @@ readiness-development-20261010-02는 감사 보완 전 성공한 개발 실행�
 실제 확인 질문 1회와 답변 기록 재생을 구분했다. 사람 대기·수정 시간과 구현 모델 비용·로컬 달러 비용은 미측정이다.
 원본 실험 재실행·평가 모델 호출·토큰·추가 유료 API 비용은 0이다. 밀리초 단위의 반복으로 안정적인 총비용
 절감·일반화·외부 효용·AI 우위를 주장하지 않는다. 새 CLI를 Linux/macOS CI에 연결했다.
+
+## 후속 복구 비교: 연속 수정과 캐시 파일 손실·손상
+
+사용자가 연구 계속 진행을 요청해, 외부 개발자 참여가 없는 상태에서 추가 로컬 가설을 검증했다.
+기존 B0/B1/B2 구현과 독립 보고서 평가기는 변경하지 않았다. 자연어·AI 정책 대신 실제 파일
+손실·손상이 선택적 재실행에 미치는 영향을 공개 개발용으로 주입했다.
+
+- 입력은 원래 Phase 1 metrics 바이트 그대로다. 수치와 출처를 변경하거나 원본 실험을 재실행하지 않았다.
+- 실제 B0 초기 실행 두 번 S0/S1으로 역할별 과거 후보 두 개를 만들었다. 공통 seed는 6단계 실행이다.
+- 9개 독립 clone에 같은 seed를 제공했고, B0/B1/B2 순서를 순환하며 같은 trace를 3회 반복했다.
+- fault는 clone의 bytes에만 주입했고, 48개 원본 preimage와 변경 전후 hash·원래 생성 revision을 보존했다.
+- 각 event는 실행 직후 독립적으로 감사했다. 이후 파일 손상 전의 결과는 선택된 162개 artifact bytes
+  snapshot으로 보존했다. 옛 audit를 현재 파일 상태를 다시 확인한 결과로 취급하지 않는다.
+
+| Event | 변경·fault | B0 새 단계 | B1/B2 새 단계 | 독립 실행 횟수 하한 |
+| --- | --- | ---: | ---: | ---: |
+| E1 | 제목 변경 | 3 | 1 | 1 |
+| E2 | 최신 summary 삭제, 과거 후보 존재 | 3 | 0 | 0 |
+| E3 | 모든 해당 summary 삭제 | 3 | 1 | 1 |
+| E4 | 해당 render bytes 손상, 기존 digest 유지 | 3 | 1 | 1 |
+| E5 | 원래 요구 복귀 | 3 | 0 | 0 |
+| E6 | 최신 select 삭제, 과거 후보 존재 | 3 | 0 | 0 |
+
+3회 합계 B0=54단계, B1/B2=각각 9단계. 최종 요구 54/54 충족, B1/B2는 모두 post-fault
+캐시의 실행 횟수 하한과 일치했다. 잘못된 캐시 소비·공개는 각각 0/90 노출 이벤트, 총 0/180이다.
+잘못된 실제 사용과 계보 위반도 0건이었다. B1 무결성 검사 60회, B2 역할 재계산 검사 84회도 비용으로 기록했다.
+
+별도 negative control은 정상 공개 뒤 옛 보고서를 공개하고 현재 pointer를 정상 결과로 복구했다.
+최종 pointer가 맞아도 감사가 실패했고, 잘못된 재사용 1건·계보 위반 1건·총 공개 3회를 잡았다.
+이 의도된 실패는 54개 정상 비교 결과에 포함하지 않는다. 대조 작업의 4단계 실행과 시간은 별도로 기록했다.
+
+실제 명령:
+
+```bash
+uv run python -m src.intent_revalidation.recovery_workflow --run-id recovery-20261010-01
+PYTHONPATH=. uv run python examples/recovery/audit_control.py --output runs/recovery-20261010-01/negative-control
+uv run pytest -q --junitxml=runs/recovery-20261010-01/verification-tests.xml
+uv run ruff check src tests examples
+uv run ruff format --check src tests examples
+uv run basedpyright
+```
+
+- CLI exit 0, `Recovery workflow contracts satisfied: 54/54`.
+- 별도 control exit 0, `Stale publication detected after restoration: True`.
+- 전체 163 tests passed in 3.26s. Ruff 통과, 69개 파일 formatting 통과, 타입 진단 0건.
+- 새 Python 파일 13개 discipline 위반 없음. 도움말 성공, 기존 run·없는 입력·잘못된 JSON·위험한 ID는 exit 2.
+- 잘못된 입력은 QA output 폴더를 만들지 않았다. 49개 실제 실행 소스와 code_snapshot hash,
+  고정 protocol, 원본 metrics hash 일치를 독립적으로 확인했다.
+
+[실험 보고서](runs/recovery-20261010-01/report.md), [전체 측정](runs/recovery-20261010-01/metrics.json),
+[manifest](runs/recovery-20261010-01/manifest.json), [검증 기록](runs/recovery-20261010-01/verification.json),
+[negative control](runs/recovery-20261010-01/negative-control/result.json).
+
+코드 SHA256: `a2b5791a2c71ac6a8237b22a2d55057f2387375f275defe0609e58150e268522`.
+원본 metrics SHA256: `ade7dd40dee5b3dcfb782a1141ebc89da7f57a0d509deecdf8a0d1100418eb20`.
+protocol SHA256: `457e887b411afc61a8a0429f32d16c2e501c0604b93663bb96a66ae74c5ab81e`.
+선행 recovery-development-20261010-01/02/03도 당시 source와 실제 결과를 보존했다.
+
+관측된 event당 정책 wall 중앙값은 B0=1.545ms, B1=1.031ms, B2=1.360ms였다. 동일 반복군의
+전체 정책 wall은 각각 27.575ms/18.079ms/25.354ms였다. 검증·연결 비용을 포함한 작은 로컬
+관측일 뿐 안정적인 속도 우위나 총비용 절감으로 해석하지 않는다. 준비·seed·clone·fault·사후 평가
+시간은 별도이고, 내부 중첩 시간은 합산하지 않는다. 사람 작업 시간·구현 모델 비용·로컬 달러 비용은 미측정이다.
+
+결론: 이 between-revision fault 범위에서는 강한 결정론적 방법으로 충분했다. source 실험 재실행,
+평가 모델 호출·토큰·유료 API 비용은 0이었다. 실행 도중 사라지는 선택된 입력, 동시성, process restart,
+손상된 metadata와 digest가 함께 조작되는 경우, 외부 실제 사용은 검증하지 않았다.
+새 CLI와 별도 감사 control을 기존 Linux/macOS CI에 추가했으며, 이 변경의 hosted CI 결과는 별도 확인이 필요하다.
+다음 한 가지 작업은 여전히 공개 과제 #2의 외부 사람 독립 재현과 실제 작업 적용 기록이다.

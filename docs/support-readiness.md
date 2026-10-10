@@ -7,7 +7,7 @@ requirement changes against strong deterministic alternatives. Program acceptanc
 
 - An [MIT license](../LICENSE) for the source and associated documentation.
 - Two implemented local comparison workflows and preserved actual results: 15/15 and 12/12 final contracts.
-- 145 passing local tests and strict checks; v0.1.0's 77 tests and successful Linux/macOS CI
+- 163 passing local tests and strict checks; v0.1.0's 77 tests and successful Linux/macOS CI
   remain recorded separately at that release revision.
 - [Contribution instructions](../CONTRIBUTING.md), reproducibility receipt requirements and initial release notes.
 - A published [v0.1.0 development prerelease](https://github.com/blakchomil/effici-lab/releases/tag/v0.1.0)
@@ -27,6 +27,14 @@ outputs, B0 four versus B1/B2 one new stages each and invalid reuse 0/140 exposu
 repeats of one public case; both interpretation labels share a confirmed-choice parser. Simple
 clarified controls suffice. It does not demonstrate natural-language accuracy or the benefit of
 asking a question. Actual attempt provenance and exact numeric-byte preservation are audited.
+
+The subsequent [cache recovery comparison](../runs/recovery-20261010-01/report.md) preserves
+original metrics and applies six between-revision local fault/change events in three cyclic
+repetitions. All 54 current-revision audits passed. Per trace, full reruns used 18 stages and
+B1/B2 each used 3; invalid reuse was 0/180 combined cached exposures. An independent stale
+publication control was rejected despite restoring the final pointer. These injected public
+development faults show bounded deterministic recovery, with measured verification overhead;
+they do not establish real user incidents, restart safety, stable cost savings or AI necessity.
 
 ## What remains unestablished
 

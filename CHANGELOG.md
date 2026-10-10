@@ -2,6 +2,13 @@
 
 ## Unreleased
 
+- Added a six-event between-revision cache-fault comparison using unchanged Phase 1 metrics
+  and existing B0/B1/B2 policies. Three cyclic repeats passed 54/54 audits; each repeat used
+  18 full-rerun stages versus 3 selective stages, with invalid reuse 0/180 combined exposures.
+- Preserved actual duplicate seed histories, fault preimages, point-in-time selected bytes,
+  all costs and an independently rejected stale-publication control after pointer restoration.
+- Recorded 163 passing local tests, strict checks and CLI protections; added both recovery
+  commands to CI. Synthetic local faults do not establish restart safety or external utility.
 - Added actual human clarification, frozen facts and deterministic readiness composition preserving
   prior report bytes. Five cyclic repeats of one public case: 25/25 valid, four versus one new stages,
   invalid reuse 0/140. Rule/clarification labels share a confirmed-choice parser; no AI policy was run.

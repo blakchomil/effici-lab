@@ -39,3 +39,7 @@ jobs:
         run: PYTHONPATH=. uv run python examples/support-readiness/probe.py "$RUNNER_TEMP/observed-request"
       - name: Run the human-clarified readiness comparison
         run: uv run python -m src.intent_revalidation.readiness_workflow --output "$RUNNER_TEMP/readiness-study"
+      - name: Run the between-revision cache recovery comparison
+        run: uv run python -m src.intent_revalidation.recovery_workflow --output "$RUNNER_TEMP/recovery-study"
+      - name: Verify stale-publication rejection after restoration
+        run: PYTHONPATH=. uv run python examples/recovery/audit_control.py --output "$RUNNER_TEMP/recovery-negative-control"
