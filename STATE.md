@@ -13,7 +13,8 @@ AI가 추가로 해결할 미해결 사례는 아직 관측되지 않았다. Pha
 
 - 실제 작업 경로: `/Users/yangjunmo/effici-lab/intent-revalidation-starter`.
 - 이미 압축 해제된 자료 폴더를 독립 프로젝트로 사용했고 이 안에 `git init`을 실행했다.
-- 로컬 Git 저장소에는 아직 commit과 remote가 없다. 외부 GitHub 저장소와 라이선스는 미정이다.
+- 공개 GitHub 저장소: [blakchomil/effici-lab](https://github.com/blakchomil/effici-lab).
+- 기본 브랜치는 `main`, 원격은 `origin`이며 로컬 브랜치가 `origin/main`을 추적한다. 라이선스는 아직 미정이다.
 - 프로젝트의 AGENTS.md, RESEARCH.md, 초기 STATE.md, START_HERE.md, README.md와 개발 입력을 읽었다.
 - 기본 Codex home의 `/Users/yangjunmo/.codex/AGENTS.md`는 실제 0바이트였다.
   AGENTS.override.md와 /, /Users, /Users/yangjunmo, /Users/yangjunmo/effici-lab의 AGENTS.md는 없었다.
@@ -70,7 +71,8 @@ uv run basedpyright
 입력 CSV SHA256:
 `4efd3b6603da0fea4fd586fe1747da96d2f19eaa67af2a6be0d5a4638debcb81`
 
-Git commit 대신 실제 소스 파일 manifest와 code_snapshot을 코드 버전 증거로 남겼다.
+실험 당시에는 실제 소스 파일 manifest와 code_snapshot을 코드 버전 증거로 남겼다.
+이 기록은 공개 첫 커밋 `91e405a179de035b96f16aa4cf3177bb5c8898e2`에 원본 그대로 포함했다.
 
 ## 관측 결과
 
@@ -99,7 +101,7 @@ Git commit 대신 실제 소스 파일 manifest와 code_snapshot을 코드 버�
 - 원격 API 비용·모델 호출·토큰은 0이다. 로컬 자원의 달러 비용은 추정하지 않았다.
 - 감사는 신뢰하는 로컬 계측의 역할·캐시 출처 표시를 사용한다. 적대적 이벤트/provenance를 검증한 것은 아니다.
 - 실행 실패 시 실패 이력을 남기고 실험이 중단된다. 실패하는 전체 워크플로 사이의 완성된 비교는 지원하지 않는다.
-- 라이브러리·adapter·React 보드·서버 통합·공개 저장소·라이선스·지원 신청은 수행하지 않았다.
+- 라이브러리·adapter·React 보드·서버 통합·라이선스 선택·지원 신청은 수행하지 않았다.
 
 ## 공개와 지원에 대한 판단
 
@@ -112,8 +114,22 @@ Git commit 대신 실제 소스 파일 manifest와 code_snapshot을 코드 버�
 
 공개 GitHub URL이 신청에 필요하며 사용·생태계 중요성·유지보수 근거를 검토한다.
 지금 초기 연구 저장소를 만드는 것은 이르지 않다.
-공개명·라이선스와 초기 연구 범위 표현을 정한 뒤 Phase 1 코드를 공개할 수 있다.
+사용자 요청에 따라 공개명 `effici-lab`으로 Phase 1 코드와 실행 결과를 공개했다. 라이선스는 아직 미정이다.
 현재 결과만으로 지원 적격성이나 합격 가능성을 확인하지 않았다.
+
+## 공개 저장소 등록 기록
+
+2026-10-10 KST, 사용자의 공개 등록 요청에 따라 GitHub의 `blakchomil` 계정에 등록했다.
+
+- `gh repo create blakchomil/effici-lab --public --source=. --remote=origin --push`: exit 0.
+- `gh repo view`: visibility=`PUBLIC`, default branch=`main` 확인.
+- 첫 커밋: `91e405a179de035b96f16aa4cf3177bb5c8898e2` — Implement Phase 1 artifact revalidation experiment.
+- 코드·테스트·입력·문서·두 실행 기록의 588개 파일을 게시했다. 로컬 환경과 내부 에이전트 작업 폴더는 제외했다.
+- 기록된 코드·입력·산출물 해시를 공개 전 점검했으며 두 실행 기록의 원본을 보존했다.
+- README의 재현 절차를 `git clone`과 저장소 루트 기준으로 갱신했다.
+- 별도 임시 폴더에서 공개 저장소를 새로 clone한 뒤 `python3 -m src.intent_revalidation`을 실행했다.
+  exit 0, `Final contracts satisfied: 15/15`. 검증용 새 실행은 임시 clone 안에 있으며 기존 연구 기록을 덮어쓰지 않았다.
+- 코드 동작은 변경하지 않았다. 이전 46개 테스트와 정적 검사 기록은 유효하다.
 
 ## 다음 한 가지 연구 작업
 

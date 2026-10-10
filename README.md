@@ -85,6 +85,9 @@ The reference enumerates current-cache/fresh-stage combinations with unit execut
 - `audit_assessments.jsonl`, `activation_cache.json`, `current.json`, `metrics.json`: independent assessments, fair cache and selected output.
 - Root `report.md`, `metrics.json`, `verification.json`, `verification-tests.xml`: comparison and validation evidence.
 
+Stored absolute paths describe the original execution environment and are retained as historical provenance.
+New runs write artifacts in the current checkout; the original paths need not exist on another machine.
+
 ## Development checks
 
 Development tools are isolated in the local uv environment. Runtime code uses only the standard library.
@@ -134,9 +137,10 @@ The [application form](https://openai.com/form/codex-for-oss/) requires a public
 Repository creation is appropriate at this stage, but application readiness also needs a credible account of utility and maintenance.
 Those are program criteria, not evidence that this project will be accepted.
 
-The current state is a local Git repository with no commits or remote.
-A GitHub repository name can differ from the Mac folder name.
-The public name and release license have not been chosen.
+The public repository is [blakchomil/effici-lab](https://github.com/blakchomil/effici-lab), with `main` as its default branch.
+The Phase 1 code, tests, fixtures and both recorded runs are published together.
+A fresh clone was executed successfully on 2026-10-10 KST and satisfied all 15 final contracts.
+The release license has not yet been selected; no LICENSE file is included.
 
 ## Prior-art boundary
 
