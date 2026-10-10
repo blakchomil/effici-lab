@@ -1,0 +1,243 @@
+{
+  "command": "gh run view 38029232478 --json status,conclusion,jobs,headSha,url",
+  "exit_code": 0,
+  "result": {
+    "conclusion": "success",
+    "headSha": "4a72806d06abc7fc1c97a9774a06ecd80352c673",
+    "jobs": [
+      {
+        "completedAt": "2026-10-10T05:57:27Z",
+        "conclusion": "success",
+        "databaseId": 114146484263,
+        "name": "verify (macos-latest, 3.14)",
+        "startedAt": "2026-10-10T05:57:05Z",
+        "status": "completed",
+        "steps": [
+          {
+            "completedAt": "2026-10-10T05:57:07Z",
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "startedAt": "2026-10-10T05:57:05Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-10T05:57:08Z",
+            "conclusion": "success",
+            "name": "Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+            "number": 2,
+            "startedAt": "2026-10-10T05:57:07Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-10T05:57:09Z",
+            "conclusion": "success",
+            "name": "Run astral-sh/setup-uv@1c37ad07a6a961277cf70c0d37d6f313000f5884",
+            "number": 3,
+            "startedAt": "2026-10-10T05:57:08Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-10T05:57:11Z",
+            "conclusion": "success",
+            "name": "Run uv sync --locked --group dev",
+            "number": 4,
+            "startedAt": "2026-10-10T05:57:09Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-10T05:57:13Z",
+            "conclusion": "success",
+            "name": "Run uv run pytest -q",
+            "number": 5,
+            "startedAt": "2026-10-10T05:57:11Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-10T05:57:13Z",
+            "conclusion": "success",
+            "name": "Run uv run ruff check src tests",
+            "number": 6,
+            "startedAt": "2026-10-10T05:57:13Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-10T05:57:13Z",
+            "conclusion": "success",
+            "name": "Run uv run ruff format --check src tests",
+            "number": 7,
+            "startedAt": "2026-10-10T05:57:13Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-10T05:57:16Z",
+            "conclusion": "success",
+            "name": "Run uv run basedpyright",
+            "number": 8,
+            "startedAt": "2026-10-10T05:57:13Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-10T05:57:16Z",
+            "conclusion": "success",
+            "name": "Run the original experiment",
+            "number": 9,
+            "startedAt": "2026-10-10T05:57:16Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-10T05:57:17Z",
+            "conclusion": "success",
+            "name": "Run the report follow-up study",
+            "number": 10,
+            "startedAt": "2026-10-10T05:57:16Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-10T05:57:22Z",
+            "conclusion": "success",
+            "name": "Post Run astral-sh/setup-uv@1c37ad07a6a961277cf70c0d37d6f313000f5884",
+            "number": 19,
+            "startedAt": "2026-10-10T05:57:17Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-10T05:57:23Z",
+            "conclusion": "success",
+            "name": "Post Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+            "number": 20,
+            "startedAt": "2026-10-10T05:57:22Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-10T05:57:24Z",
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 21,
+            "startedAt": "2026-10-10T05:57:23Z",
+            "status": "completed"
+          }
+        ],
+        "url": "https://github.com/blakchomil/effici-lab/actions/runs/38029232478/job/114146484263"
+      },
+      {
+        "completedAt": "2026-10-10T05:57:15Z",
+        "conclusion": "success",
+        "databaseId": 114146484706,
+        "name": "verify (ubuntu-latest, 3.13)",
+        "startedAt": "2026-10-10T05:56:59Z",
+        "status": "completed",
+        "steps": [
+          {
+            "completedAt": "2026-10-10T05:57:01Z",
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "startedAt": "2026-10-10T05:57:00Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-10T05:57:02Z",
+            "conclusion": "success",
+            "name": "Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+            "number": 2,
+            "startedAt": "2026-10-10T05:57:01Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-10T05:57:03Z",
+            "conclusion": "success",
+            "name": "Run astral-sh/setup-uv@1c37ad07a6a961277cf70c0d37d6f313000f5884",
+            "number": 3,
+            "startedAt": "2026-10-10T05:57:02Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-10T05:57:05Z",
+            "conclusion": "success",
+            "name": "Run uv sync --locked --group dev",
+            "number": 4,
+            "startedAt": "2026-10-10T05:57:03Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-10T05:57:06Z",
+            "conclusion": "success",
+            "name": "Run uv run pytest -q",
+            "number": 5,
+            "startedAt": "2026-10-10T05:57:05Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-10T05:57:06Z",
+            "conclusion": "success",
+            "name": "Run uv run ruff check src tests",
+            "number": 6,
+            "startedAt": "2026-10-10T05:57:06Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-10T05:57:06Z",
+            "conclusion": "success",
+            "name": "Run uv run ruff format --check src tests",
+            "number": 7,
+            "startedAt": "2026-10-10T05:57:06Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-10T05:57:08Z",
+            "conclusion": "success",
+            "name": "Run uv run basedpyright",
+            "number": 8,
+            "startedAt": "2026-10-10T05:57:06Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-10T05:57:09Z",
+            "conclusion": "success",
+            "name": "Run the original experiment",
+            "number": 9,
+            "startedAt": "2026-10-10T05:57:08Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-10T05:57:09Z",
+            "conclusion": "success",
+            "name": "Run the report follow-up study",
+            "number": 10,
+            "startedAt": "2026-10-10T05:57:09Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-10T05:57:12Z",
+            "conclusion": "success",
+            "name": "Post Run astral-sh/setup-uv@1c37ad07a6a961277cf70c0d37d6f313000f5884",
+            "number": 19,
+            "startedAt": "2026-10-10T05:57:09Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-10T05:57:12Z",
+            "conclusion": "success",
+            "name": "Post Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+            "number": 20,
+            "startedAt": "2026-10-10T05:57:12Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-10T05:57:12Z",
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 21,
+            "startedAt": "2026-10-10T05:57:12Z",
+            "status": "completed"
+          }
+        ],
+        "url": "https://github.com/blakchomil/effici-lab/actions/runs/38029232478/job/114146484706"
+      }
+    ],
+    "status": "completed",
+    "url": "https://github.com/blakchomil/effici-lab/actions/runs/38029232478"
+  },
+  "scope": "Hosted CI at the recorded headSha. Later receipt/documentation-only commits do not change the tested source."
+}

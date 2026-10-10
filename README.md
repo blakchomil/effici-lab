@@ -158,7 +158,9 @@ The current follow-up verification records **77 tests passed**, with Ruff/format
 Additional tests exercise malformed metrics, wrong selection/source lineage, stage fingerprint scope,
 independent detection of poisoned production stages, and invalid intermediate or stale publications.
 Both real CLI workflows passed. The follow-up CLI rejected missing/malformed inputs, unsafe IDs and existing output.
-CI is configured for Linux/Python 3.13 and macOS/Python 3.14; hosted execution is pending publication.
+Hosted [CI passed on Linux/Python 3.13 and macOS/Python 3.14](https://github.com/blakchomil/effici-lab/actions/runs/38029232478)
+at commit `4a72806d06abc7fc1c97a9774a06ecd80352c673`: tests, static checks and both real CLI workflows.
+The [CI receipt](runs/report-followup-20261010-02/ci-verification.json) retains the tested revision and job results.
 
 Strict checks retain exhaustive variant handling and all substantive type diagnostics.
 `reportUnnecessaryComparison` is disabled to permit the required exhaustive enum fallback.

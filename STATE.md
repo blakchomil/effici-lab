@@ -201,6 +201,10 @@ B2의 계약 검사는 기대 역할 내용을 재계산한다. 검사 비용과
 새 ID의 최종 실행과 전체 검사를 통과했다. 선행 실행의 코드를 덮어쓰지 않았다.
 
 CI를 Linux/Python 3.13과 macOS/Python 3.14에 구성했다. 고정 커밋의 Actions와 읽기 권한을 사용하며
-테스트·정적 검사·두 실제 CLI 실행을 수행한다. 현재 이 문서 작성 시점에는 호스팅 실행을 아직 확인하지 않았다.
+테스트·정적 검사·두 실제 CLI 실행을 수행한다. GitHub의 두 job에서 모든 단계가 실제 success로 완료됐다.
+검증한 revision: `4a72806d06abc7fc1c97a9774a06ecd80352c673`.
+[실제 CI 실행](https://github.com/blakchomil/effici-lab/actions/runs/38029232478),
+[검증 기록](runs/report-followup-20261010-02/ci-verification.json).
+후속 코드·테스트·세 실행 기록·문서와 CI를 공개 저장소 main에 게시했다.
 관측 범위는 구조화된 요구·동기 로컬 실행·공개 개발 사례다. 자연어 해석, 숨겨진 평가,
 외부 워크플로와 원격 병렬 복구는 미검증이다.
