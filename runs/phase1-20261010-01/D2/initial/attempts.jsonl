@@ -1,0 +1,8 @@
+{"id":"initial-load-000001","input_ids":[],"phase":"initial","revision_id":"r0","started_ns":46977796216208,"status":"running","task_id":"load"}
+{"artifact_id":"a-initial-load-000001","compute_ns":117708,"finished_ns":46977796607291,"id":"initial-load-000001","phase":"initial","revision_id":"r0","started_ns":46977796216208,"status":"completed","task_id":"load"}
+{"id":"initial-normalize-000003","input_ids":["a-initial-load-000001"],"phase":"initial","revision_id":"r0","started_ns":46977796801000,"status":"running","task_id":"normalize"}
+{"artifact_id":"a-initial-normalize-000003","compute_ns":184417,"finished_ns":46977797133875,"id":"initial-normalize-000003","phase":"initial","revision_id":"r0","started_ns":46977796801000,"status":"completed","task_id":"normalize"}
+{"id":"initial-aggregate-000006","input_ids":["a-initial-normalize-000003"],"phase":"initial","revision_id":"r0","started_ns":46977797275625,"status":"running","task_id":"aggregate"}
+{"artifact_id":"a-initial-aggregate-000006","compute_ns":197042,"finished_ns":46977797610583,"id":"initial-aggregate-000006","phase":"initial","revision_id":"r0","started_ns":46977797275625,"status":"completed","task_id":"aggregate"}
+{"id":"initial-render-000009","input_ids":["a-initial-aggregate-000006"],"phase":"initial","revision_id":"r0","started_ns":46977797754875,"status":"running","task_id":"render"}
+{"artifact_id":"a-initial-render-000009","compute_ns":151042,"finished_ns":46977798060291,"id":"initial-render-000009","phase":"initial","revision_id":"r0","started_ns":46977797754875,"status":"completed","task_id":"render"}

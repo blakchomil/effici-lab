@@ -1,0 +1,1 @@
+{"change":"initial requirements","id":"r0","parent_id":null,"requirements":{"dataset_id":"synthetic_usage_v1","group_by":["category"],"metric":{"field":"amount_cents","operation":"sum","unit":"cents"},"output":{"format":"markdown","language":"en","title":"Usage report"},"period":{"end_exclusive":"2026-02-01","start_inclusive":"2026-01-01"}}}

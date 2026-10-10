@@ -1,0 +1,14 @@
+{"id":"initial-load-000001","input_ids":[],"phase":"initial","revision_id":"r0","started_ns":46442899406541,"status":"running","task_id":"load"}
+{"artifact_id":"a-initial-load-000001","compute_ns":132750,"finished_ns":46442899805833,"id":"initial-load-000001","phase":"initial","revision_id":"r0","started_ns":46442899406541,"status":"completed","task_id":"load"}
+{"id":"initial-normalize-000003","input_ids":["a-initial-load-000001"],"phase":"initial","revision_id":"r0","started_ns":46442899961791,"status":"running","task_id":"normalize"}
+{"artifact_id":"a-initial-normalize-000003","compute_ns":208666,"finished_ns":46442900326333,"id":"initial-normalize-000003","phase":"initial","revision_id":"r0","started_ns":46442899961791,"status":"completed","task_id":"normalize"}
+{"id":"aggregate-r0-late","input_ids":["a-initial-normalize-000003"],"phase":"late","revision_id":"r0","started_ns":46442901511708,"status":"running","task_id":"aggregate"}
+{"artifact_id":"a-aggregate-r0-late","compute_ns":221959,"finished_ns":46442902149583,"id":"aggregate-r0-late","phase":"late","revision_id":"r0","started_ns":46442901511708,"status":"completed","task_id":"aggregate"}
+{"id":"policy-load-000014","input_ids":[],"phase":"policy","revision_id":"r1","started_ns":46442902416000,"status":"running","task_id":"load"}
+{"artifact_id":"a-policy-load-000014","compute_ns":143917,"finished_ns":46442902753000,"id":"policy-load-000014","phase":"policy","revision_id":"r1","started_ns":46442902416000,"status":"completed","task_id":"load"}
+{"id":"policy-normalize-000018","input_ids":["a-policy-load-000014"],"phase":"policy","revision_id":"r1","started_ns":46442903073458,"status":"running","task_id":"normalize"}
+{"artifact_id":"a-policy-normalize-000018","compute_ns":206917,"finished_ns":46442903462166,"id":"policy-normalize-000018","phase":"policy","revision_id":"r1","started_ns":46442903073458,"status":"completed","task_id":"normalize"}
+{"id":"policy-aggregate-000023","input_ids":["a-policy-normalize-000018"],"phase":"policy","revision_id":"r1","started_ns":46442903758250,"status":"running","task_id":"aggregate"}
+{"artifact_id":"a-policy-aggregate-000023","compute_ns":222875,"finished_ns":46442904163500,"id":"policy-aggregate-000023","phase":"policy","revision_id":"r1","started_ns":46442903758250,"status":"completed","task_id":"aggregate"}
+{"id":"policy-render-000028","input_ids":["a-policy-aggregate-000023"],"phase":"policy","revision_id":"r1","started_ns":46442904473291,"status":"running","task_id":"render"}
+{"artifact_id":"a-policy-render-000028","compute_ns":203542,"finished_ns":46442904901250,"id":"policy-render-000028","phase":"policy","revision_id":"r1","started_ns":46442904473291,"status":"completed","task_id":"render"}

@@ -1,0 +1,3 @@
+{"action":"reuse","artifact_id":"a-initial-load-000001","check_kind":"integrity_checks","consumer_role":"raw_records","duration_ns":24541,"reason":"granular key + actual immutable byte hash","target_revision_id":"r1","validity":"valid"}
+{"action":"reuse","artifact_id":"a-initial-normalize-000003","check_kind":"integrity_checks","consumer_role":"normalized_records","duration_ns":30209,"reason":"granular key + actual immutable byte hash","target_revision_id":"r1","validity":"valid"}
+{"action":"reuse","artifact_id":"a-initial-aggregate-000006","check_kind":"integrity_checks","consumer_role":"aggregate","duration_ns":23875,"reason":"granular key + actual immutable byte hash","target_revision_id":"r1","validity":"valid"}

@@ -1,0 +1,2 @@
+{"action":"reuse","artifact_id":"a-initial-load-000001","check_kind":"integrity_checks","consumer_role":"raw_records","duration_ns":24084,"reason":"granular key + actual immutable byte hash","target_revision_id":"r1","validity":"valid"}
+{"action":"reuse","artifact_id":"a-initial-normalize-000003","check_kind":"integrity_checks","consumer_role":"normalized_records","duration_ns":21208,"reason":"granular key + actual immutable byte hash","target_revision_id":"r1","validity":"valid"}

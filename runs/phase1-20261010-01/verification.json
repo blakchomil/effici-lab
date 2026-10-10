@@ -1,0 +1,69 @@
+{
+  "recorded_date_kst": "2026-10-10",
+  "code_sha256": "fd36f612113d762a0386b676822d731d6ea971e0f7a168bf4e09e7446bddd890",
+  "manifest": "manifest.json",
+  "validation_outputs": [
+    {
+      "status": "fulfilled",
+      "value": {
+        "chunk_id": "d3ff24",
+        "wall_time_seconds": 2.255993583,
+        "exit_code": 0,
+        "original_token_count": 51,
+        "output": "..............................................                           [100%]\n46 passed in 0.69s\nAll checks passed!\n21 files already formatted\n0 errors, 0 warnings, 0 notes\nno violations in 21 file(s)\n"
+      }
+    },
+    {
+      "status": "fulfilled",
+      "value": {
+        "chunk_id": "3f6486",
+        "wall_time_seconds": 0.000007375,
+        "exit_code": 2,
+        "original_token_count": 31,
+        "output": "Phase 1 failed: [Errno 17] File exists: '/Users/yangjunmo/effici-lab/intent-revalidation-starter/runs/phase1-20261010-01'\n"
+      }
+    }
+  ],
+  "cli_outputs": [
+    {
+      "cmd": "python3 -m src.intent_revalidation --run-id phase1-20261010-01",
+      "result": {
+        "status": "fulfilled",
+        "value": {
+          "chunk_id": "2372cb",
+          "wall_time_seconds": 0.059333084,
+          "exit_code": 0,
+          "original_token_count": 33,
+          "output": "Final contracts satisfied: 15/15\nReport: /Users/yangjunmo/effici-lab/intent-revalidation-starter/runs/phase1-20261010-01/report.md\n"
+        }
+      }
+    },
+    {
+      "cmd": "python3 -m src.intent_revalidation --help",
+      "result": {
+        "status": "fulfilled",
+        "value": {
+          "chunk_id": "584a41",
+          "wall_time_seconds": 0.00000975,
+          "exit_code": 0,
+          "original_token_count": 110,
+          "output": "usage: python3.14 -m src.intent_revalidation [-h] [--cases CASES]\n                                             [--output OUTPUT]\n                                             [--run-id RUN_ID]\n\nPhase 1 public development comparison: B0/B1/B2\n\noptions:\n  -h, --help       show this help message and exit\n  --cases CASES\n  --output OUTPUT\n  --run-id RUN_ID  unique output folder name; existing runs are never\n                   overwritten\n"
+        }
+      }
+    },
+    {
+      "cmd": "python3 -m src.intent_revalidation --cases examples/missing.json --run-id rejected-missing-input",
+      "result": {
+        "status": "fulfilled",
+        "value": {
+          "chunk_id": "4d2bf3",
+          "wall_time_seconds": 0.000009084,
+          "exit_code": 2,
+          "original_token_count": 34,
+          "output": "Phase 1 failed: [Errno 2] No such file or directory: '/Users/yangjunmo/effici-lab/intent-revalidation-starter/examples/missing.json'\n"
+        }
+      }
+    }
+  ],
+  "note": "Expected negative CLI paths exit 2. Test and static-check commands passed. These records preserve actual tool results."
+}

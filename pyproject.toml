@@ -1,0 +1,41 @@
+[project]
+name = "intent-revalidation-research"
+version = "0.1.0"
+description = "Local development comparison of artifact reuse after requirement changes"
+requires-python = ">=3.13"
+dependencies = []
+
+[dependency-groups]
+dev = ["pytest>=8", "ruff>=0.8", "basedpyright>=1.21"]
+
+[tool.uv]
+package = false
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = ["-ra", "--strict-config", "--strict-markers"]
+filterwarnings = ["error"]
+
+[tool.basedpyright]
+typeCheckingMode = "all"
+pythonVersion = "3.13"
+include = ["src", "tests"]
+exclude = ["**/__pycache__", "**/.venv"]
+reportUnnecessaryComparison = "none"
+
+[tool.ruff]
+target-version = "py313"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = ["COM812", "ISC001", "D203", "D213", "CPY001", "D102", "D103", "D107", "EM101", "EM102"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**/*.py" = ["S101", "PLR2004", "D"]
+"src/intent_revalidation/__main__.py" = ["T201"]
+"**/__init__.py" = ["D104"]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"

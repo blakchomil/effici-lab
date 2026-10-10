@@ -1,0 +1,4 @@
+{"artifact_id":"a-initial-load-000001","consumer_role":"raw_records","reason":"source-derived role content matches","target_revision_id":"r1","validity":"valid"}
+{"artifact_id":"a-initial-normalize-000003","consumer_role":"normalized_records","reason":"source-derived role content matches","target_revision_id":"r1","validity":"valid"}
+{"artifact_id":"a-aggregate-r0-late","consumer_role":"aggregate","reason":"source-derived role content matches","target_revision_id":"r1","validity":"valid"}
+{"artifact_id":"a-policy-render-000020","consumer_role":"report","reason":"source-derived role content matches","target_revision_id":"r1","validity":"valid"}

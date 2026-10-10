@@ -1,0 +1,495 @@
+{
+  "format_version": 1,
+  "visibility": "public_development_only",
+  "note": "Hand-checked development expectations, not held-out evaluation results. All cases start in separate cloned workspaces and have no caches beyond the stated initial state. Expected validity concerns the artifact's designated role, not every final-output requirement. A more expensive sound plan can still be correct.",
+  "dataset": {
+    "id": "synthetic_usage_v1",
+    "path": "usage.csv",
+    "synthetic": true,
+    "immutable": true,
+    "record_actual_file_sha256_at_runtime": true,
+    "expected_row_count": 6
+  },
+  "initial_revision": {
+    "id": "r0",
+    "parent_id": null,
+    "requirements": {
+      "dataset_id": "synthetic_usage_v1",
+      "period": {
+        "start_inclusive": "2026-01-01",
+        "end_exclusive": "2026-02-01"
+      },
+      "group_by": [
+        "category"
+      ],
+      "metric": {
+        "operation": "sum",
+        "field": "amount_cents",
+        "unit": "cents"
+      },
+      "output": {
+        "format": "markdown",
+        "language": "en",
+        "title": "Usage report"
+      }
+    }
+  },
+  "roles": {
+    "load": "raw_records",
+    "normalize": "normalized_records",
+    "aggregate": "aggregate",
+    "render": "report"
+  },
+  "task_contracts": [
+    {
+      "task_id": "load",
+      "upstream_tasks": [],
+      "direct_requirement_fields": [
+        "dataset_id"
+      ],
+      "contract": "Load every row from the fixed source snapshot. Record actual source hash and schema."
+    },
+    {
+      "task_id": "normalize",
+      "upstream_tasks": [
+        "load"
+      ],
+      "direct_requirement_fields": [],
+      "contract": "Parse dates and integer cents. Preserve every source row from all periods. Record provenance and schema."
+    },
+    {
+      "task_id": "aggregate",
+      "upstream_tasks": [
+        "normalize"
+      ],
+      "direct_requirement_fields": [
+        "period",
+        "group_by",
+        "metric"
+      ],
+      "contract": "Select records in [start_inclusive, end_exclusive), sum integer cents by category, and retain period, grouping, unit, metric and source provenance."
+    },
+    {
+      "task_id": "render",
+      "upstream_tasks": [
+        "aggregate"
+      ],
+      "direct_requirement_fields": [
+        "output"
+      ],
+      "contract": "Render the aggregate with the required format, language and title. Preserve the aggregate's period, units, categories and totals."
+    }
+  ],
+  "cache_key_requirements": "Every task also uses its actual input content, code, environment and contract version. The revision ID or entire user message must not replace relevant-field keys.",
+  "cases": [
+    {
+      "id": "D1",
+      "description": "Format-only change after the initial workflow completes.",
+      "track": "structured_requirements",
+      "user_change": "내용은 그대로 두고 HTML 보고서로 바꿔줘.",
+      "initial_state": {
+        "completed_tasks": [
+          "load",
+          "normalize",
+          "aggregate",
+          "render"
+        ],
+        "in_flight_attempt": null
+      },
+      "target_revision": {
+        "id": "r1",
+        "parent_id": "r0",
+        "requirements": {
+          "dataset_id": "synthetic_usage_v1",
+          "period": {
+            "start_inclusive": "2026-01-01",
+            "end_exclusive": "2026-02-01"
+          },
+          "group_by": [
+            "category"
+          ],
+          "metric": {
+            "operation": "sum",
+            "field": "amount_cents",
+            "unit": "cents"
+          },
+          "output": {
+            "format": "html",
+            "language": "en",
+            "title": "Usage report"
+          }
+        }
+      },
+      "expected_existing_artifact_validity": {
+        "raw_records": "valid",
+        "normalized_records": "valid",
+        "aggregate": "valid",
+        "report": "invalid"
+      },
+      "minimum_new_task_executions_with_stated_cache": [
+        "render"
+      ],
+      "expected_final_output": {
+        "dataset_id": "synthetic_usage_v1",
+        "period": {
+          "start_inclusive": "2026-01-01",
+          "end_exclusive": "2026-02-01"
+        },
+        "group_by": [
+          "category"
+        ],
+        "metric": {
+          "operation": "sum",
+          "field": "amount_cents",
+          "unit": "cents"
+        },
+        "output": {
+          "format": "html",
+          "language": "en",
+          "title": "Usage report"
+        },
+        "totals_cents": {
+          "api": 4000,
+          "storage": 2000
+        }
+      }
+    },
+    {
+      "id": "D2",
+      "description": "Period change with raw and normalized snapshots covering both months.",
+      "track": "structured_requirements",
+      "user_change": "기간만 2026년 2월로 바꿔줘.",
+      "initial_state": {
+        "completed_tasks": [
+          "load",
+          "normalize",
+          "aggregate",
+          "render"
+        ],
+        "in_flight_attempt": null
+      },
+      "target_revision": {
+        "id": "r1",
+        "parent_id": "r0",
+        "requirements": {
+          "dataset_id": "synthetic_usage_v1",
+          "period": {
+            "start_inclusive": "2026-02-01",
+            "end_exclusive": "2026-03-01"
+          },
+          "group_by": [
+            "category"
+          ],
+          "metric": {
+            "operation": "sum",
+            "field": "amount_cents",
+            "unit": "cents"
+          },
+          "output": {
+            "format": "markdown",
+            "language": "en",
+            "title": "Usage report"
+          }
+        }
+      },
+      "expected_existing_artifact_validity": {
+        "raw_records": "valid",
+        "normalized_records": "valid",
+        "aggregate": "invalid",
+        "report": "invalid"
+      },
+      "minimum_new_task_executions_with_stated_cache": [
+        "aggregate",
+        "render"
+      ],
+      "expected_final_output": {
+        "dataset_id": "synthetic_usage_v1",
+        "period": {
+          "start_inclusive": "2026-02-01",
+          "end_exclusive": "2026-03-01"
+        },
+        "group_by": [
+          "category"
+        ],
+        "metric": {
+          "operation": "sum",
+          "field": "amount_cents",
+          "unit": "cents"
+        },
+        "output": {
+          "format": "markdown",
+          "language": "en",
+          "title": "Usage report"
+        },
+        "totals_cents": {
+          "api": 10000,
+          "storage": 5000
+        }
+      }
+    },
+    {
+      "id": "D3",
+      "description": "Semantically equivalent restatement. A new revision does not change requirements.",
+      "track": "structured_requirements",
+      "user_change": "즉, 같은 자료의 1월 카테고리별 합계를 같은 영어 Markdown 보고서로 정리하는 거야. 기존 조건은 그대로야.",
+      "initial_state": {
+        "completed_tasks": [
+          "load",
+          "normalize",
+          "aggregate",
+          "render"
+        ],
+        "in_flight_attempt": null
+      },
+      "target_revision": {
+        "id": "r1",
+        "parent_id": "r0",
+        "requirements": {
+          "dataset_id": "synthetic_usage_v1",
+          "period": {
+            "start_inclusive": "2026-01-01",
+            "end_exclusive": "2026-02-01"
+          },
+          "group_by": [
+            "category"
+          ],
+          "metric": {
+            "operation": "sum",
+            "field": "amount_cents",
+            "unit": "cents"
+          },
+          "output": {
+            "format": "markdown",
+            "language": "en",
+            "title": "Usage report"
+          }
+        }
+      },
+      "expected_existing_artifact_validity": {
+        "raw_records": "valid",
+        "normalized_records": "valid",
+        "aggregate": "valid",
+        "report": "valid"
+      },
+      "minimum_new_task_executions_with_stated_cache": [],
+      "expected_final_output": {
+        "dataset_id": "synthetic_usage_v1",
+        "period": {
+          "start_inclusive": "2026-01-01",
+          "end_exclusive": "2026-02-01"
+        },
+        "group_by": [
+          "category"
+        ],
+        "metric": {
+          "operation": "sum",
+          "field": "amount_cents",
+          "unit": "cents"
+        },
+        "output": {
+          "format": "markdown",
+          "language": "en",
+          "title": "Usage report"
+        },
+        "totals_cents": {
+          "api": 4000,
+          "storage": 2000
+        }
+      }
+    },
+    {
+      "id": "D4",
+      "description": "An aggregate started under r0 finishes after an HTML-only requirement change.",
+      "track": "event_replay",
+      "policy_activation": "after_all_events_in_event_sequence_complete",
+      "user_change": "보고서 출력 형식을 HTML로 바꿔줘.",
+      "initial_state": {
+        "completed_tasks": [
+          "load",
+          "normalize"
+        ],
+        "in_flight_attempt": null
+      },
+      "target_revision": {
+        "id": "r1",
+        "parent_id": "r0",
+        "requirements": {
+          "dataset_id": "synthetic_usage_v1",
+          "period": {
+            "start_inclusive": "2026-01-01",
+            "end_exclusive": "2026-02-01"
+          },
+          "group_by": [
+            "category"
+          ],
+          "metric": {
+            "operation": "sum",
+            "field": "amount_cents",
+            "unit": "cents"
+          },
+          "output": {
+            "format": "html",
+            "language": "en",
+            "title": "Usage report"
+          }
+        }
+      },
+      "event_sequence": [
+        {
+          "sequence": 1,
+          "type": "run_started",
+          "attempt_id": "aggregate-r0-late",
+          "task_id": "aggregate",
+          "revision_id": "r0"
+        },
+        {
+          "sequence": 2,
+          "type": "requirements_changed",
+          "target_revision_id": "r1"
+        },
+        {
+          "sequence": 3,
+          "type": "run_completed",
+          "attempt_id": "aggregate-r0-late",
+          "task_id": "aggregate",
+          "started_revision_id": "r0",
+          "produced_role": "aggregate"
+        }
+      ],
+      "expected_late_artifact": {
+        "role": "aggregate",
+        "validity_for_r1_role": "valid",
+        "eligible_for_current_binding_after_assessment": true,
+        "overwrite_original_run_revision": false
+      },
+      "minimum_new_task_executions_after_late_result_arrives": [
+        "render"
+      ],
+      "expected_final_output": {
+        "dataset_id": "synthetic_usage_v1",
+        "period": {
+          "start_inclusive": "2026-01-01",
+          "end_exclusive": "2026-02-01"
+        },
+        "group_by": [
+          "category"
+        ],
+        "metric": {
+          "operation": "sum",
+          "field": "amount_cents",
+          "unit": "cents"
+        },
+        "output": {
+          "format": "html",
+          "language": "en",
+          "title": "Usage report"
+        },
+        "totals_cents": {
+          "api": 4000,
+          "storage": 2000
+        }
+      }
+    },
+    {
+      "id": "D5",
+      "description": "A Markdown report started under r0 finishes after an HTML-only requirement change.",
+      "track": "event_replay",
+      "policy_activation": "after_all_events_in_event_sequence_complete",
+      "user_change": "보고서 출력 형식을 HTML로 바꿔줘.",
+      "initial_state": {
+        "completed_tasks": [
+          "load",
+          "normalize",
+          "aggregate"
+        ],
+        "in_flight_attempt": null
+      },
+      "target_revision": {
+        "id": "r1",
+        "parent_id": "r0",
+        "requirements": {
+          "dataset_id": "synthetic_usage_v1",
+          "period": {
+            "start_inclusive": "2026-01-01",
+            "end_exclusive": "2026-02-01"
+          },
+          "group_by": [
+            "category"
+          ],
+          "metric": {
+            "operation": "sum",
+            "field": "amount_cents",
+            "unit": "cents"
+          },
+          "output": {
+            "format": "html",
+            "language": "en",
+            "title": "Usage report"
+          }
+        }
+      },
+      "event_sequence": [
+        {
+          "sequence": 1,
+          "type": "run_started",
+          "attempt_id": "render-r0-late",
+          "task_id": "render",
+          "revision_id": "r0"
+        },
+        {
+          "sequence": 2,
+          "type": "requirements_changed",
+          "target_revision_id": "r1"
+        },
+        {
+          "sequence": 3,
+          "type": "run_completed",
+          "attempt_id": "render-r0-late",
+          "task_id": "render",
+          "started_revision_id": "r0",
+          "produced_role": "report"
+        }
+      ],
+      "expected_late_artifact": {
+        "role": "report",
+        "validity_for_r1_role": "invalid",
+        "eligible_for_current_binding_after_assessment": false,
+        "overwrite_original_run_revision": false
+      },
+      "minimum_new_task_executions_after_late_result_arrives": [
+        "render"
+      ],
+      "expected_final_output": {
+        "dataset_id": "synthetic_usage_v1",
+        "period": {
+          "start_inclusive": "2026-01-01",
+          "end_exclusive": "2026-02-01"
+        },
+        "group_by": [
+          "category"
+        ],
+        "metric": {
+          "operation": "sum",
+          "field": "amount_cents",
+          "unit": "cents"
+        },
+        "output": {
+          "format": "html",
+          "language": "en",
+          "title": "Usage report"
+        },
+        "totals_cents": {
+          "api": 4000,
+          "storage": 2000
+        }
+      }
+    }
+  ],
+  "scoring_notes": [
+    "Do not score a policy solely against the minimum task list. Check actual current-role validity, final output and all incurred costs.",
+    "The task-list expectations assume only the stated cache, the four declared pipeline operations, and no precomputed future outputs.",
+    "Transforming or filtering cached data is computation and must be charged.",
+    "Event-replay cases begin at initial_state, before sequence 1. Each run_started event creates the in-flight attempt exactly once. Policies may not begin new work until events 1 through 3 have been replayed. These tests establish event-order handling only, not performance of real parallel cancellation.",
+    "Do not expose this file or its expectations to a later held-out target policy."
+  ]
+}

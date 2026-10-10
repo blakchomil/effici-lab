@@ -1,0 +1,1 @@
+{"dataset_id":"synthetic_usage_v1","group_by":["category"],"metric":{"field":"amount_cents","operation":"sum","unit":"cents"},"period":{"end_exclusive":"2026-03-01","start_inclusive":"2026-02-01"},"source_sha256":"4efd3b6603da0fea4fd586fe1747da96d2f19eaa67af2a6be0d5a4638debcb81","totals_cents":{"api":10000,"storage":5000}}

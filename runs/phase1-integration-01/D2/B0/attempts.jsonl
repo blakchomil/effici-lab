@@ -1,0 +1,16 @@
+{"id":"initial-load-000001","input_ids":[],"phase":"initial","revision_id":"r0","started_ns":46442866628125,"status":"running","task_id":"load"}
+{"artifact_id":"a-initial-load-000001","compute_ns":126458,"finished_ns":46442867029541,"id":"initial-load-000001","phase":"initial","revision_id":"r0","started_ns":46442866628125,"status":"completed","task_id":"load"}
+{"id":"initial-normalize-000003","input_ids":["a-initial-load-000001"],"phase":"initial","revision_id":"r0","started_ns":46442867176875,"status":"running","task_id":"normalize"}
+{"artifact_id":"a-initial-normalize-000003","compute_ns":176875,"finished_ns":46442867489416,"id":"initial-normalize-000003","phase":"initial","revision_id":"r0","started_ns":46442867176875,"status":"completed","task_id":"normalize"}
+{"id":"initial-aggregate-000006","input_ids":["a-initial-normalize-000003"],"phase":"initial","revision_id":"r0","started_ns":46442867620833,"status":"running","task_id":"aggregate"}
+{"artifact_id":"a-initial-aggregate-000006","compute_ns":192292,"finished_ns":46442867961875,"id":"initial-aggregate-000006","phase":"initial","revision_id":"r0","started_ns":46442867620833,"status":"completed","task_id":"aggregate"}
+{"id":"initial-render-000009","input_ids":["a-initial-aggregate-000006"],"phase":"initial","revision_id":"r0","started_ns":46442868097958,"status":"running","task_id":"render"}
+{"artifact_id":"a-initial-render-000009","compute_ns":152208,"finished_ns":46442868398666,"id":"initial-render-000009","phase":"initial","revision_id":"r0","started_ns":46442868097958,"status":"completed","task_id":"render"}
+{"id":"policy-load-000015","input_ids":[],"phase":"policy","revision_id":"r1","started_ns":46442870155791,"status":"running","task_id":"load"}
+{"artifact_id":"a-policy-load-000015","compute_ns":163541,"finished_ns":46442870492416,"id":"policy-load-000015","phase":"policy","revision_id":"r1","started_ns":46442870155791,"status":"completed","task_id":"load"}
+{"id":"policy-normalize-000019","input_ids":["a-policy-load-000015"],"phase":"policy","revision_id":"r1","started_ns":46442870728458,"status":"running","task_id":"normalize"}
+{"artifact_id":"a-policy-normalize-000019","compute_ns":184709,"finished_ns":46442871054583,"id":"policy-normalize-000019","phase":"policy","revision_id":"r1","started_ns":46442870728458,"status":"completed","task_id":"normalize"}
+{"id":"policy-aggregate-000024","input_ids":["a-policy-normalize-000019"],"phase":"policy","revision_id":"r1","started_ns":46442871308666,"status":"running","task_id":"aggregate"}
+{"artifact_id":"a-policy-aggregate-000024","compute_ns":199584,"finished_ns":46442871648416,"id":"policy-aggregate-000024","phase":"policy","revision_id":"r1","started_ns":46442871308666,"status":"completed","task_id":"aggregate"}
+{"id":"policy-render-000029","input_ids":["a-policy-aggregate-000024"],"phase":"policy","revision_id":"r1","started_ns":46442871918791,"status":"running","task_id":"render"}
+{"artifact_id":"a-policy-render-000029","compute_ns":156209,"finished_ns":46442872252500,"id":"policy-render-000029","phase":"policy","revision_id":"r1","started_ns":46442871918791,"status":"completed","task_id":"render"}

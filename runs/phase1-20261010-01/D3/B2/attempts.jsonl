@@ -1,0 +1,8 @@
+{"id":"initial-load-000001","input_ids":[],"phase":"initial","revision_id":"r0","started_ns":46977815386541,"status":"running","task_id":"load"}
+{"artifact_id":"a-initial-load-000001","compute_ns":156917,"finished_ns":46977815865041,"id":"initial-load-000001","phase":"initial","revision_id":"r0","started_ns":46977815386541,"status":"completed","task_id":"load"}
+{"id":"initial-normalize-000003","input_ids":["a-initial-load-000001"],"phase":"initial","revision_id":"r0","started_ns":46977816022750,"status":"running","task_id":"normalize"}
+{"artifact_id":"a-initial-normalize-000003","compute_ns":198542,"finished_ns":46977816366125,"id":"initial-normalize-000003","phase":"initial","revision_id":"r0","started_ns":46977816022750,"status":"completed","task_id":"normalize"}
+{"id":"initial-aggregate-000006","input_ids":["a-initial-normalize-000003"],"phase":"initial","revision_id":"r0","started_ns":46977816501458,"status":"running","task_id":"aggregate"}
+{"artifact_id":"a-initial-aggregate-000006","compute_ns":181709,"finished_ns":46977816843250,"id":"initial-aggregate-000006","phase":"initial","revision_id":"r0","started_ns":46977816501458,"status":"completed","task_id":"aggregate"}
+{"id":"initial-render-000009","input_ids":["a-initial-aggregate-000006"],"phase":"initial","revision_id":"r0","started_ns":46977817004916,"status":"running","task_id":"render"}
+{"artifact_id":"a-initial-render-000009","compute_ns":285042,"finished_ns":46977817463750,"id":"initial-render-000009","phase":"initial","revision_id":"r0","started_ns":46977817004916,"status":"completed","task_id":"render"}
