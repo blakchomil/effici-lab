@@ -4,6 +4,11 @@ Research on artifact revalidation and selective reruns after requirement changes
 
 **Research question:** After a user changes a requirement, can an agent use artifact provenance and executable checks to reuse existing work more efficiently than strong deterministic methods, while preserving correctness?
 
+The intended use is handling revisions to an agent's work: keep verified analysis when a report title changes,
+recompute the affected stages when the evidence selection changes, and explain those decisions with records.
+The current implementation is a local comparison harness. Reliable natural-language understanding and
+an AI policy's advantage over deterministic methods remain research questions.
+
 한국어 연구 계획: [RESEARCH.md](RESEARCH.md) · 실제 상태: [STATE.md](STATE.md)
 
 ## Current result
@@ -75,6 +80,49 @@ The evaluator independently parses the CSV and actual Markdown/HTML output.
 It audits every target-revision consumption, binding and publication, including later stale overwrites.
 The reference enumerates current-cache/fresh-stage combinations with unit execution costs; it never feeds answers into policy selection.
 
+## Follow-up: this project's report artifacts
+
+A second local workflow reads the **preserved, actual Phase 1 metrics**:
+
+`select cases → summarize policy evidence → render Markdown`
+
+```bash
+python3 -m src.intent_revalidation.report_workflow
+python3 -m src.intent_revalidation.report_workflow --help
+```
+
+It creates a unique report run. `--metrics`, `--output` and `--run-id` select paths and identity.
+The source experiment is not rerun. The four proposed development changes are title, column order,
+D4/D5-only evidence, and return to the original requirements. They were motivated by our reporting work;
+they are not a recorded field study or hidden evaluation.
+
+The policies share one measured three-stage seed, then retain their own sequential cache histories.
+B1 uses role-specific requirement fields and stage dependency fingerprints; B2 checks executable contracts.
+An independent evaluator reconstructs expectations from the original metrics bytes, checks every intermediate
+and rendered output, and audits actual binding, consumption and publication. Exhaustive reference planning
+is performed after policy execution and does not supply policy answers.
+
+This is the Phase 2 entry study. AI comparison, natural-language evaluation and external integration
+are still conditional on a concrete problem and measured benefit. Additional paid API calls are excluded
+under the user's current research constraint.
+
+[Actual follow-up report](runs/report-followup-20261010-02/report.md) ·
+[Metrics](runs/report-followup-20261010-02/metrics.json) ·
+[Manifest](runs/report-followup-20261010-02/manifest.json) ·
+[Verification](runs/report-followup-20261010-02/verification.json)
+
+| Change | B0 new stages | B1 new stages | B2 new stages | Execution-count minimum |
+| --- | ---: | ---: | ---: | ---: |
+| Title | 3 | 1 | 1 | 1 |
+| Column order | 3 | 1 | 1 | 1 |
+| D4/D5 only | 3 | 3 | 3 | 3 |
+| Return to original | 3 | 0 | 0 | 0 |
+
+All 12 final results were valid. B1/B2 each had zero invalid reuse events across 14 cache exposures.
+Both matched the finite execution-count minimum. The original experiment was rerun zero times within
+this study, and model calls/API charges were zero. Contract checks perform real recomputation and are
+charged through counts and timing. These single-run millisecond measurements do not prove a total-cost advantage.
+
 ## Result layout
 
 - `manifest.json`, `source.csv`, `dev_cases.json`, `code_snapshot/`: exact execution inputs and implementation.
@@ -101,10 +149,16 @@ uv run ruff format --check src tests
 uv run basedpyright
 ```
 
-Recorded result: **46 tests passed**, Ruff and formatting passed, zero type diagnostics.
+The preserved Phase 1 verification records **46 tests passed**, Ruff/formatting passed and zero type diagnostics.
 Tests cover content corruption, wrong period/unit/source/format, incomplete snapshots,
 cache provenance changes, older cache matches, stale overwrites, event order and cost accounting.
 The CLI was also driven through its help, success, missing-input and existing-output paths.
+
+The current follow-up verification records **77 tests passed**, with Ruff/formatting and type checks clean.
+Additional tests exercise malformed metrics, wrong selection/source lineage, stage fingerprint scope,
+independent detection of poisoned production stages, and invalid intermediate or stale publications.
+Both real CLI workflows passed. The follow-up CLI rejected missing/malformed inputs, unsafe IDs and existing output.
+CI is configured for Linux/Python 3.13 and macOS/Python 3.14; hosted execution is pending publication.
 
 Strict checks retain exhaustive variant handling and all substantive type diagnostics.
 `reportUnnecessaryComparison` is disabled to permit the required exhaustive enum fallback.
@@ -120,10 +174,10 @@ Inner check/key times overlap decision time; do not double-count them. Local res
 
 No process isolation from hidden answers is claimed. Public fixture expectations were available to the implementation agents.
 The policy input record does not contain expected actions/totals, and evaluator results are used only afterward.
-Natural-language interpretation, unseen changes, other workflows, parallel failures and recovery remain untested.
+Natural-language interpretation, unseen changes, external workflows, parallel failures and recovery remain untested.
 A task failure leaves partial failure history and aborts the experiment; comparison across failing workflows is not implemented.
 
-Before Phase 2, identify one representative real change that strong baselines cannot already solve.
+Before adding an AI policy, identify one representative real change that strong baselines cannot already solve.
 AI advantage, novelty and usefulness beyond this local scope remain unestablished.
 
 ## Open source and support
