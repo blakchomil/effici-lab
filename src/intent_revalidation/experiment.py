@@ -186,7 +186,7 @@ def run_experiment(cases_path: Path, root: Path, command: str) -> tuple[Outcome,
         "environment": environment,
         "environment_sha256": context.environment_sha256,
         "contract_version": context.contract_version,
-        "code_identity": "actual source-file manifest; repository has no commit yet",
+        "code_identity": "actual source-file manifest; see immutable code_snapshot",
         "tasks": tasks,
         "cost_model": {
             "execution_count_weight_per_stage": 1,
