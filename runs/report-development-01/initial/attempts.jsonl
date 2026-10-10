@@ -1,0 +1,6 @@
+{"action":"start","attempt":{"attempt_id":"a-000000-select","revision":"R0","step":"select","time_ns":51193485550833}}
+{"action":"complete","artifact_id":"a-000000-select","attempt":{"attempt_id":"a-000000-select","revision":"R0","step":"select","time_ns":51193485550833},"completed_ns":51193486529125}
+{"action":"start","attempt":{"attempt_id":"a-000001-summary","revision":"R0","step":"summary","time_ns":51193486936291}}
+{"action":"complete","artifact_id":"a-000001-summary","attempt":{"attempt_id":"a-000001-summary","revision":"R0","step":"summary","time_ns":51193486936291},"completed_ns":51193487516416}
+{"action":"start","attempt":{"attempt_id":"a-000002-render","revision":"R0","step":"render","time_ns":51193487798583}}
+{"action":"complete","artifact_id":"a-000002-render","attempt":{"attempt_id":"a-000002-render","revision":"R0","step":"render","time_ns":51193487798583},"completed_ns":51193488226083}

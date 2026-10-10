@@ -1,0 +1,5 @@
+{"policy":"B0","requirements":{"case_ids":["D1","D2","D3","D4","D5"],"columns":["policy","valid_cases","executions","invalid_reuse"],"title":"Phase 1 results"},"revision":"R0"}
+{"policy":"B0","requirements":{"case_ids":["D1","D2","D3","D4","D5"],"columns":["policy","valid_cases","executions","invalid_reuse"],"title":"effici-lab results"},"revision":"R1"}
+{"policy":"B0","requirements":{"case_ids":["D1","D2","D3","D4","D5"],"columns":["invalid_reuse","executions","valid_cases","policy"],"title":"effici-lab results"},"revision":"R2"}
+{"policy":"B0","requirements":{"case_ids":["D4","D5"],"columns":["invalid_reuse","executions","valid_cases","policy"],"title":"effici-lab results"},"revision":"R3"}
+{"policy":"B0","requirements":{"case_ids":["D1","D2","D3","D4","D5"],"columns":["policy","valid_cases","executions","invalid_reuse"],"title":"Phase 1 results"},"revision":"R4"}

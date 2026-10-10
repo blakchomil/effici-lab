@@ -1,0 +1,20 @@
+{"artifact_id":"a-000000-select","reason":"role content and provenance satisfied","revision":"R1","step":"select","validity":"valid"}
+{"artifact_id":"a-000001-summary","reason":"role content and provenance satisfied","revision":"R1","step":"summary","validity":"valid"}
+{"artifact_id":"a-000002-render","reason":"role content mismatch","revision":"R1","step":"render","validity":"invalid"}
+{"artifact_id":"a-000000-select","reason":"role content and provenance satisfied","revision":"R2","step":"select","validity":"valid"}
+{"artifact_id":"a-000001-summary","reason":"role content and provenance satisfied","revision":"R2","step":"summary","validity":"valid"}
+{"artifact_id":"a-000003-render","reason":"role content mismatch","revision":"R2","step":"render","validity":"invalid"}
+{"artifact_id":"a-000002-render","reason":"role content mismatch","revision":"R2","step":"render","validity":"invalid"}
+{"artifact_id":"a-000000-select","reason":"role content mismatch","revision":"R3","step":"select","validity":"invalid"}
+{"artifact_id":"a-000001-summary","reason":"provenance or input lineage mismatch","revision":"R3","step":"summary","validity":"invalid"}
+{"artifact_id":"a-000004-render","reason":"provenance or input lineage mismatch","revision":"R3","step":"render","validity":"invalid"}
+{"artifact_id":"a-000003-render","reason":"provenance or input lineage mismatch","revision":"R3","step":"render","validity":"invalid"}
+{"artifact_id":"a-000002-render","reason":"provenance or input lineage mismatch","revision":"R3","step":"render","validity":"invalid"}
+{"artifact_id":"a-000005-select","reason":"role content mismatch","revision":"R4","step":"select","validity":"invalid"}
+{"artifact_id":"a-000000-select","reason":"role content and provenance satisfied","revision":"R4","step":"select","validity":"valid"}
+{"artifact_id":"a-000006-summary","reason":"provenance or input lineage mismatch","revision":"R4","step":"summary","validity":"invalid"}
+{"artifact_id":"a-000001-summary","reason":"role content and provenance satisfied","revision":"R4","step":"summary","validity":"valid"}
+{"artifact_id":"a-000007-render","reason":"provenance or input lineage mismatch","revision":"R4","step":"render","validity":"invalid"}
+{"artifact_id":"a-000004-render","reason":"role content mismatch","revision":"R4","step":"render","validity":"invalid"}
+{"artifact_id":"a-000003-render","reason":"role content mismatch","revision":"R4","step":"render","validity":"invalid"}
+{"artifact_id":"a-000002-render","reason":"role content and provenance satisfied","revision":"R4","step":"render","validity":"valid"}

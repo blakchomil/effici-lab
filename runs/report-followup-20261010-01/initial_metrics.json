@@ -1,0 +1,1 @@
+{"operation_counts":{"bind":3,"consume":2,"decisions":3,"executions":3,"hash_operations":6,"key_computations":6,"preflight":1,"publish":1},"operation_duration_ns":{"bind":160500,"consume":76834,"decisions":113625,"executions":1172459,"hash_operations":25458,"key_computations":202167,"preflight":36458,"publish":39209},"wall_ns":1905583}

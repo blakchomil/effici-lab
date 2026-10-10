@@ -1,0 +1,123 @@
+{
+  "date": "2026-10-10 KST",
+  "run": "report-followup-20261010-02",
+  "cli": {
+    "command": "python3 -m src.intent_revalidation.report_workflow --run-id report-followup-20261010-02",
+    "chunk_id": "00df6d",
+    "wall_time_seconds": 0.062642542,
+    "exit_code": 0,
+    "original_token_count": 38,
+    "output": "Report workflow contracts satisfied: 12/12\nReport: /Users/yangjunmo/effici-lab/intent-revalidation-starter/runs/report-followup-20261010-02/report.md\n"
+  },
+  "checks": [
+    {
+      "command": "uv run pytest -q --junitxml=runs/report-followup-20261010-02/verification-tests.xml",
+      "chunk_id": "544034",
+      "wall_time_seconds": 1.2854639159999999,
+      "exit_code": 0,
+      "original_token_count": 45,
+      "output": "........................................................................ [ 93%]\n.....                                                                    [100%]\n77 passed in 1.13s\n"
+    },
+    {
+      "command": "uv run ruff check src tests",
+      "chunk_id": "e345a5",
+      "wall_time_seconds": 0.000009,
+      "exit_code": 0,
+      "original_token_count": 5,
+      "output": "All checks passed!\n"
+    },
+    {
+      "command": "uv run ruff format --check src tests",
+      "chunk_id": "06520b",
+      "wall_time_seconds": 0.000008458,
+      "exit_code": 0,
+      "original_token_count": 7,
+      "output": "36 files already formatted\n"
+    },
+    {
+      "command": "uv run basedpyright",
+      "chunk_id": "439c57",
+      "wall_time_seconds": 1.576011166,
+      "exit_code": 0,
+      "original_token_count": 8,
+      "output": "0 errors, 0 warnings, 0 notes\n"
+    },
+    {
+      "command": "uv run python /Users/yangjunmo/.codex/plugins/cache/sisyphuslabs/omo/5.1.29/skills/programming/scripts/python/check-no-excuse-rules.py src tests",
+      "chunk_id": "a897d4",
+      "wall_time_seconds": 0.15831625,
+      "exit_code": 0,
+      "original_token_count": 7,
+      "output": "no violations in 36 file(s)\n"
+    }
+  ],
+  "surface_checks": [
+    {
+      "label": "help",
+      "cmd": "python3 -m src.intent_revalidation.report_workflow --help",
+      "chunk_id": "a89b18",
+      "wall_time_seconds": 0.000009333,
+      "exit_code": 0,
+      "original_token_count": 93,
+      "output": "usage: python3.14 -m src.intent_revalidation.report_workflow\n       [-h] [--metrics METRICS] [--output OUTPUT] [--run-id RUN_ID]\n\nReport follow-up study: actual Phase 1 evidence, proposed change cases\n\noptions:\n  -h, --help         show this help message and exit\n  --metrics METRICS\n  --output OUTPUT\n  --run-id RUN_ID    unique folder name; existing runs are preserved\n"
+    },
+    {
+      "label": "existing",
+      "cmd": "python3 -m src.intent_revalidation.report_workflow --run-id report-followup-20261010-02",
+      "chunk_id": "ac25c2",
+      "wall_time_seconds": 0.000013625,
+      "exit_code": 2,
+      "original_token_count": 21,
+      "output": "Report follow-up failed: [Errno 17] File exists: 'runs/report-followup-20261010-02'\n"
+    },
+    {
+      "label": "missing",
+      "cmd": "python3 -m src.intent_revalidation.report_workflow --metrics missing-metrics.json --output .omo/evidence --run-id missing-source",
+      "chunk_id": "78cc8b",
+      "wall_time_seconds": 0.000010209,
+      "exit_code": 2,
+      "original_token_count": 22,
+      "output": "Report follow-up failed: [Errno 2] No such file or directory: 'missing-metrics.json'\n"
+    },
+    {
+      "label": "malformed",
+      "cmd": "python3 -m src.intent_revalidation.report_workflow --metrics README.md --output .omo/evidence --run-id malformed-source",
+      "chunk_id": "83eca5",
+      "wall_time_seconds": 0.000015292,
+      "exit_code": 2,
+      "original_token_count": 17,
+      "output": "Report follow-up failed: Expecting value: line 1 column 1 (char 0)\n"
+    },
+    {
+      "label": "unsafe_id",
+      "cmd": "python3 -m src.intent_revalidation.report_workflow --run-id ../../escape",
+      "chunk_id": "059754",
+      "wall_time_seconds": 0.000008958,
+      "exit_code": 2,
+      "original_token_count": 22,
+      "output": "Report follow-up failed: run-id: expected alphanumeric characters, dash or underscore\n"
+    },
+    {
+      "label": "original",
+      "cmd": "python3 -m src.intent_revalidation --output .omo/evidence/original-regression --run-id phase1-regression",
+      "chunk_id": "44f508",
+      "wall_time_seconds": 0.082611167,
+      "exit_code": 0,
+      "original_token_count": 40,
+      "output": "Final contracts satisfied: 15/15\nReport: /Users/yangjunmo/effici-lab/intent-revalidation-starter/.omo/evidence/original-regression/phase1-regression/report.md\n"
+    }
+  ],
+  "source_and_snapshot_validation": {
+    "chunk_id": "87e4e7",
+    "wall_time_seconds": 0.000007708,
+    "exit_code": 0,
+    "original_token_count": 323,
+    "output": "{\n  \"summary\": {\n    \"B0\": {\n      \"new_stages\": [\n        3,\n        3,\n        3,\n        3\n      ],\n      \"reference_minimum\": [\n        1,\n        1,\n        3,\n        0\n      ],\n      \"valid_finals\": 4,\n      \"cache_uses\": 0,\n      \"invalid_reuses\": 0,\n      \"invalid_uses\": 0,\n      \"lineage_violations\": 0,\n      \"inference_calls\": 0\n    },\n    \"B1\": {\n      \"new_stages\": [\n        1,\n        1,\n        3,\n        0\n      ],\n      \"reference_minimum\": [\n        1,\n        1,\n        3,\n        0\n      ],\n      \"valid_finals\": 4,\n      \"cache_uses\": 14,\n      \"invalid_reuses\": 0,\n      \"invalid_uses\": 0,\n      \"lineage_violations\": 0,\n      \"inference_calls\": 0\n    },\n    \"B2\": {\n      \"new_stages\": [\n        1,\n        1,\n        3,\n        0\n      ],\n      \"reference_minimum\": [\n        1,\n        1,\n        3,\n        0\n      ],\n      \"valid_finals\": 4,\n      \"cache_uses\": 14,\n      \"invalid_reuses\": 0,\n      \"invalid_uses\": 0,\n      \"lineage_violations\": 0,\n      \"inference_calls\": 0\n    }\n  },\n  \"code_sha256\": \"7038bc2662311211d232cf0ca2130a87c93a68635573291288e939295d4a77e6\",\n  \"source_sha256\": \"ade7dd40dee5b3dcfb782a1141ebc89da7f57a0d509deecdf8a0d1100418eb20\",\n  \"snapshot_files\": 16,\n  \"source_bytes_equal\": true,\n  \"malformed_input_created_output\": false\n}\n"
+  },
+  "scope": "Local development study, not a held-out AI evaluation.",
+  "ci": "Configured separately; GitHub execution not yet verified at the time of this receipt.",
+  "local_prior_runs": {
+    "report-development-01": "Initial successful development run; code snapshot precedes final identity and module changes.",
+    "report-followup-20261010-01": "12/12 CLI and 77 tests passed; module-size scanner failed (252 pure LOC); superseded without overwriting."
+  }
+}
