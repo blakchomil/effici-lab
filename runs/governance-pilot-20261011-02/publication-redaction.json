@@ -1,0 +1,34 @@
+{
+  "date": "2026-10-11 KST",
+  "scope": "Public evidence copy; original observations preserved privately before transformation",
+  "transformations": [
+    "Mac home directory replaced with /Users/REDACTED",
+    "Encoded Claude project-directory account name replaced with REDACTED",
+    "JUnit hostname replaced with redacted-host"
+  ],
+  "outcomes_changed": false,
+  "notes": "Stored paths are historical metadata. Redacted settings are not intended for direct activation; use init in a fresh project. Fixture/source hashes in original manifests describe execution-time bytes; this record maps transformed public files. Native lifecycle comparison remains unevaluated.",
+  "original_archive_sha256": "5ebdb84efb4463e7ee454ff4b57a4db0829ac99c9120546363f50cb57771becc",
+  "files": [
+    {
+      "path": "runs/governance-pilot-20261011-02/continuous.process.json",
+      "original_sha256": "fef26532ffd2f0d3d31db1ef1ddc738fe322b71266da45cf6994ba2c5b23cc61",
+      "public_sha256": "4a698e020a048b2d29e1d5a881b6f33832c5fbc32070986933dbae520386fdcf"
+    },
+    {
+      "path": "runs/governance-pilot-20261011-02/continuous.stdout.jsonl",
+      "original_sha256": "10ced969fa73c0115e3ccce2133eeb81415a3e4d2106fba4342c5bbd18cde52c",
+      "public_sha256": "231d8867e128b99b3f951a1e106c60f6507352421364f5fabc6b43a85a51bd9a"
+    },
+    {
+      "path": "runs/governance-pilot-20261011-02/events.jsonl",
+      "original_sha256": "e38701eb09f5cd96fa44323d8ae037d4d8ba9fe371d04f39b613b1a91edbb54e",
+      "public_sha256": "7b77eed768ca39df186c12f69c15b1ba391966554c2bdad18918abd8655e9c40"
+    },
+    {
+      "path": "runs/governance-pilot-20261011-02/workspace/.claude/settings.json",
+      "original_sha256": "d00739e853672af4093fc622bc711734685fccfe8f52820de472da0f9faa2990",
+      "public_sha256": "fb2296a81053e26d1b02394fee13c2240786970fba6b8cc4159cf9dbb5b8ad8a"
+    }
+  ]
+}
