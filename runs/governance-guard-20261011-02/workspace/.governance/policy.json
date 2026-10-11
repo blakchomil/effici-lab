@@ -1,0 +1,2 @@
+{"check_argv":["/opt/homebrew/opt/python@3.14/bin/python3.14","verify.py"],"gates":[["/opt/homebrew/opt/python@3.14/bin/python3.14","publish.py"]],"instructions":["CLAUDE.md"],"protected":["protected.txt"],"schema":"governance-guard-v1","tracked":["input.txt","verify.py"],"version":1}
+

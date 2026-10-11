@@ -1,0 +1,28 @@
+{
+  "date": "2026-10-11 KST",
+  "scope": "Public evidence copy; original observations preserved privately before transformation",
+  "transformations": [
+    "Mac home directory replaced with /Users/REDACTED",
+    "JUnit hostname replaced with redacted-host"
+  ],
+  "outcomes_changed": false,
+  "notes": "Stored paths are historical metadata. Redacted settings are not intended for direct activation; use init in a fresh project. Fixture/source hashes in original manifests describe execution-time bytes; this record maps transformed public files. Native lifecycle comparison remains unevaluated.",
+  "original_archive_sha256": "5ebdb84efb4463e7ee454ff4b57a4db0829ac99c9120546363f50cb57771becc",
+  "files": [
+    {
+      "path": "runs/governance-guard-20261011-01/commands.json",
+      "original_sha256": "97d9b88770224e5bff7621a6ad4fc54447f275dd1f81944a4df1f0e4aa048ae3",
+      "public_sha256": "6a336cd734ae32744ada407a777ae9b3bde5a6e4949147c07ba803dc04b7b4ea"
+    },
+    {
+      "path": "runs/governance-guard-20261011-01/metrics.json",
+      "original_sha256": "3b788db38d727b7e0c9a5fe336d84b60aebaf3c9542a8fb6a54c749aca76478c",
+      "public_sha256": "9526f2131052506caac742887c5fe5d0b412ad70ce2a169f9b1878c7844eaf2e"
+    },
+    {
+      "path": "runs/governance-guard-20261011-01/workspace/.governance/session-settings.json",
+      "original_sha256": "b0f1f50b681a7c9f41a2b433cccadaf2246db32dec96528f61a9eb87ec773747",
+      "public_sha256": "b17dd57a8350e5433829fe4c7bf2637a70e3b040d56a77d7f0e650f3133a8435"
+    }
+  ]
+}

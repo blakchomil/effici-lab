@@ -1,0 +1,51 @@
+{
+  "date": "2026-10-11 KST",
+  "cwd": "/Users/REDACTED/effici-lab/intent-revalidation-starter",
+  "scope": "Local CLI functionality and regression checks; no AI lifecycle effectiveness claim",
+  "demo": {
+    "command": "env PYTHONPATH=. python3 examples/governance-guard/demo.py runs/governance-guard-20261011-02",
+    "exit_code": 0,
+    "stdout": "Guard CLI scenarios: 8/8\nReport: /Users/REDACTED/effici-lab/intent-revalidation-starter/runs/governance-guard-20261011-02/report.md\n",
+    "artifacts": "runs/governance-guard-20261011-02"
+  },
+  "checks": [
+    {
+      "name": "tests",
+      "cmd": "uv run pytest -q --junitxml=runs/governance-guard-20261011-02/verification-tests.xml",
+      "chunk_id": "39f2ac",
+      "wall_time_seconds": 2.20486575,
+      "session_id": 26334,
+      "original_token_count": 84,
+      "output": "........................................................................ [ 29%]\n........................................................................ [ 59%]\n........................................................................ [ 89%]\n.........................                                                [100%]\n241 passed in 10.08s\n",
+      "exit_code": 0
+    },
+    {
+      "name": "lint",
+      "cmd": "uv run ruff check src tests examples",
+      "chunk_id": "659f6b",
+      "wall_time_seconds": 0.267155667,
+      "exit_code": 0,
+      "original_token_count": 5,
+      "output": "All checks passed!\n"
+    },
+    {
+      "name": "format",
+      "cmd": "uv run ruff format --check src tests examples",
+      "chunk_id": "f141a6",
+      "wall_time_seconds": 0.277176625,
+      "exit_code": 0,
+      "original_token_count": 7,
+      "output": "91 files already formatted\n"
+    },
+    {
+      "name": "types",
+      "cmd": "uv run basedpyright",
+      "chunk_id": "180e68",
+      "wall_time_seconds": 0.000007834,
+      "session_id": 57007,
+      "original_token_count": 8,
+      "output": "0 errors, 0 warnings, 0 notes\n",
+      "exit_code": 0
+    }
+  ]
+}

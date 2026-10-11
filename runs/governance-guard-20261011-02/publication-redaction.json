@@ -1,0 +1,39 @@
+{
+  "date": "2026-10-11 KST",
+  "scope": "Public evidence copy; original observations preserved privately before transformation",
+  "transformations": [
+    "Mac home directory replaced with /Users/REDACTED",
+    "JUnit hostname replaced with redacted-host",
+    "JUnit XML final newline normalized"
+  ],
+  "outcomes_changed": false,
+  "notes": "Stored paths are historical metadata. Redacted settings are not intended for direct activation; use init in a fresh project. Fixture/source hashes in original manifests describe execution-time bytes; this record maps transformed public files. Native lifecycle comparison remains unevaluated.",
+  "original_archive_sha256": "5ebdb84efb4463e7ee454ff4b57a4db0829ac99c9120546363f50cb57771becc",
+  "files": [
+    {
+      "path": "runs/governance-guard-20261011-02/commands.json",
+      "original_sha256": "ffba44a37170bdc2620a8ba85936a6986477aa072e0d03f2e11bdb4069140a97",
+      "public_sha256": "6db7f2c8c7535398e315a2709477b9c17c61f45fc731e97005e2dc5bbb07dee6"
+    },
+    {
+      "path": "runs/governance-guard-20261011-02/metrics.json",
+      "original_sha256": "445b3f12456261111a774d57d6251b82b051173affd616c23ece34b31527626f",
+      "public_sha256": "9e043ef96b04535584c4a359eea4acc006963d0307e28a3b4e2027e33c506238"
+    },
+    {
+      "path": "runs/governance-guard-20261011-02/verification-tests.xml",
+      "original_sha256": "849d3fe1d54eeaf2f3298f872850d2085cbf06ad3ab140107450ee6475dbc381",
+      "public_sha256": "c0647ce0bdcbf3655b8f7c94768de918b26ce37dd89402a49faf7d6731dacd25"
+    },
+    {
+      "path": "runs/governance-guard-20261011-02/verification.json",
+      "original_sha256": "6e7e131199aeae370a214c68a0f8fd105b38cc7a49e7bb7ebaf8b5709a18d540",
+      "public_sha256": "f7618db10159dd4f2ff43be823cf699476f3f220c0fc6273165cd8bebce95608"
+    },
+    {
+      "path": "runs/governance-guard-20261011-02/workspace/.governance/session-settings.json",
+      "original_sha256": "4951a567fbde5d764aa8ce9e709aa0168d7ec68b5da3fb70bf0582aa3bb20af3",
+      "public_sha256": "7f494b121ef36ea48da02e2227822be682a864c10da654e8f94dee5c261028bd"
+    }
+  ]
+}
