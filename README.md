@@ -6,8 +6,9 @@ Research on artifact revalidation and selective reruns after requirement changes
 
 The intended use is handling revisions to an agent's work: keep verified analysis when a report title changes,
 recompute the affected stages when the evidence selection changes, and explain those decisions with records.
-The current implementation is a local comparison harness. Reliable natural-language understanding and
-an AI policy's advantage over deterministic methods remain research questions.
+The current implementation includes local comparison harnesses and an opt-in Governance Guard prototype.
+The guard refreshes instructions and checks whether verification receipts still apply to current files.
+Reliable natural-language understanding and an AI policy's advantage over deterministic methods remain research questions.
 
 한국어 연구 계획: [RESEARCH.md](RESEARCH.md) · 실제 상태: [STATE.md](STATE.md)
 
@@ -31,6 +32,50 @@ It is not a held-out benchmark. No AI policy was evaluated.
 The per-case minimum new executions were 1, 2, 0, 1, 1. B1 and B2 reached those execution-count bounds.
 There is no observed gap here that requires AI. Fewer executions do not establish lower total cost or general safety.
 B2 incurs semantic verification costs; all measured times, bindings, decisions and initial/late work are in the results.
+
+## Governance Guard: a reusable local tool
+
+For an AI coding workflow, this prototype makes configured instructions visible on session/agent start
+and requires a fresh passing check before a configured command such as publication. Changes to tracked
+files, instructions or policy invalidate the old check. It uses Python's standard library and creates
+project-local, opt-in Claude hook settings; initialization does not activate them.
+
+[Setup and commands](examples/governance-guard/README.md) ·
+[Actual CLI results: 8/8 scenarios](runs/governance-guard-20261011-02/report.md) ·
+[Verification: 241 tests and static checks](runs/governance-guard-20261011-02/verification.json)
+
+Run the complete local demonstration without a model or authentication:
+
+```bash
+PYTHONPATH=. python3 examples/governance-guard/demo.py runs/my-guard-demo
+```
+
+Use a new output directory for each run. The demonstration actually executes the guard CLI,
+verifier and publication script. It confirms missing/stale/failed checks are denied, successful
+checks allow publication, protected edits are denied, and current instruction text is returned.
+Hook inputs are supplied by the driver; this is not a real Claude lifecycle experiment.
+
+The guard enforces explicitly configured checks and bounded command matching. It is a workflow helper,
+not a security sandbox or a guarantee that an AI understands every instruction. Untracked inputs,
+external state, shell indirection, and races after a gate decision are outside this prototype's coverage.
+
+A separate [G0/G1/G2 protocol](examples/governance/protocol-20261011.md) and comparison runner are ready
+for actual compaction, process restart and delegation. An actual Claude Code 2.1.114
+[development pilot](runs/governance-pilot-20261011-02/report.md) failed on expired OAuth before task
+execution. **No AI compliance comparison has completed.** No Tokyo server or operating project was changed.
+From the repository root, the runner command is:
+
+```bash
+python3 -m src.intent_revalidation.governance_workflow --run-id my-governance-study --model sonnet
+```
+
+This last command requires working Claude subscription authentication and consumes its allowance;
+it is not part of the model-free demonstration or default CI. The additions were verified locally
+and published on 2026-10-11 KST. [CI for the code revision](https://github.com/blakchomil/effici-lab/actions/runs/38098360634)
+was queued when publication was checked; a hosted pass is not yet confirmed here.
+Public evidence copies redact personal home paths and the JUnit hostname. Each run's
+`publication-redaction.json` records original/public hashes; untouched originals are retained privately.
+Generate fresh settings with `init` rather than activating redacted historical settings.
 
 ## Run locally
 

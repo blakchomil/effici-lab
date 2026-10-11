@@ -1,11 +1,16 @@
 # Project state
 
-갱신: 2026-10-10 KST
+갱신: 2026-10-11 KST
 
 ## 현재 단계
 
-**Phase 1과 Phase 2 진입 비교, 인간 확인 후 지원 현황 보고서 비교에 이어,
-연속 수정 중 캐시 파일 손실·손상의 복구 비교를 실제 실행했다.**
+**기존 산출물 재검증 연구에 지침 유지·검증 기록 재사용을 추가했다.
+재사용 가능한 Governance Guard를 구현하고 실제 로컬 CLI 8/8 상황을 확인했다.**
+
+사용자는 도쿄 운영 환경의 장애 해결보다 유용한 도구 제작을 목표로 정했다.
+현재 지침 재전달, 검증 실행과 해시 연결, 변경 후 검증 무효화, 지정 작업 차단이 동작한다.
+실제 Claude의 G0/G1/G2 압축·재시작·위임 비교는 아직 미평가다. 개발 호출이 OAuth 만료로
+실패했고, 이를 준수 결과로 해석하지 않는다. 운영 서버·전역 Claude 설정은 변경하지 않았다.
 
 연구 질문은 유지한다. 다섯 공개 개발 사례에서는 B1/B2가 실행 횟수 하한에 도달했다.
 보존된 Phase 1 metrics를 사용하는 두 번째 작업에서도 B1/B2가 실행 횟수 하한에 도달했다.
@@ -376,4 +381,65 @@ protocol SHA256: `457e887b411afc61a8a0429f32d16c2e501c0604b93663bb96a66ae74c5ab8
 평가 모델 호출·토큰·유료 API 비용은 0이었다. 실행 도중 사라지는 선택된 입력, 동시성, process restart,
 손상된 metadata와 digest가 함께 조작되는 경우, 외부 실제 사용은 검증하지 않았다.
 새 CLI와 별도 감사 control을 기존 Linux/macOS CI에 추가했으며, 이 변경의 hosted CI 결과는 별도 확인이 필요하다.
-다음 한 가지 작업은 여전히 공개 과제 #2의 외부 사람 독립 재현과 실제 작업 적용 기록이다.
+이 시점의 다음 작업은 공개 과제 #2의 외부 사람 독립 재현과 실제 작업 적용 기록이었다.
+
+## 지침 유지 도구와 실제 검증: 2026-10-11
+
+사용자의 공개 요청에 따라 새 도구와 비교 실험 코드를 `origin/main`에 푸시했다.
+2026-10-11 KST 원격 `refs/heads/main`이 `e2d38a4247f890f61a6720b61fc6e21dce3ed896`과
+일치함을 확인했다. 도구 커밋은 `1efd9191a700c6c2f411f4c86da87d1546f5c211`이다.
+[해당 코드의 CI](https://github.com/blakchomil/effici-lab/actions/runs/38098360634)는 이 확인 당시
+queued였으며 hosted 통과는 아직 확인하지 않았다. 새 릴리스는 만들지 않았다.
+
+공개 실행 기록의 개인 home 경로·Claude의 인코딩된 프로젝트 경로·JUnit hostname을 가렸다.
+가림 전 원본 전체는 로컬의 Git 제외 archive에 보존했다. 각 실행 폴더의
+`publication-redaction.json`에 기록한 14개 원본/공개 파일 SHA256 쌍을 실제 확인했다.
+결과 수치·성공/실패 판정은 바꾸지 않았다. 공개된 과거 settings는 경로가 가려져 있으므로
+다른 프로젝트에서 바로 활성화하지 않고 도구의 init으로 새로 생성한다.
+
+- `src/intent_revalidation/governance_guard/`: 설정, 현재 지침, 추적 바이트 fingerprint,
+  실제 verifier 실행과 불변 이름의 receipt, SessionStart/SubagentStart/PreToolUse 훅 CLI.
+- [사용법](examples/governance-guard/README.md): 다른 프로젝트에 명시 지침·검증·gate를 설정하고
+  생성된 session settings를 선택해서 사용한다. init 자체는 Claude 설정을 활성화하지 않는다.
+- `src/intent_revalidation/governance_workflow/`: G0/G1/G2의 실제 Claude lifecycle 비교 드라이버,
+  관측·독립 평가·코드 스냅샷·실패 보고. native 압축, 새 PID의 같은 session 재시작,
+  실제 child 위임 증거를 요구한다. 모델 자체 설명이나 수동 훅 입력은 실제 전환 증거가 아니다.
+- [고정 protocol](examples/governance/protocol-20261011.md), deterministic negative controls,
+  `tests/test_governance_controls.py`, `test_governance_driver.py`, `test_governance_guard.py`,
+  `test_governance_reporting.py`.
+
+최종 로컬 검증 명령은 연구 저장소에서 실행했다.
+
+```bash
+PYTHONPATH=. python3 examples/governance-guard/demo.py runs/governance-guard-20261011-02
+uv run pytest -q --junitxml=runs/governance-guard-20261011-02/verification-tests.xml
+uv run ruff check src tests examples
+uv run ruff format --check src tests examples
+uv run basedpyright
+```
+
+실제 결과: CLI exit 0, `Guard CLI scenarios: 8/8`. pytest 241 passed in 10.08s,
+Ruff 통과, 91개 파일 formatting 통과, basedpyright 0 errors/warnings/notes.
+LSP 설치는 수행하지 않았고 실제 CLI 타입 검사를 사용했다.
+[결과](runs/governance-guard-20261011-02/report.md),
+[전체 명령·출력과 exit code](runs/governance-guard-20261011-02/verification.json),
+[실행 전 코드·드라이버 스냅샷](runs/governance-guard-20261011-02/manifest.json)을 보존했다.
+선행 guard-01 및 개발 pilot-01/02를 덮어쓰지 않았다.
+
+8개 상황은 검증 전 차단, 검증 후 실제 게시 허용, 입력 변경 차단, 재검증 후 허용,
+지침 변경 차단, 실제 실패 검증 차단, 보호 Write 차단과 일반 Write 허용, 현재 지침 재전달이다.
+훅 입력을 제공한 드라이버에서 검사했으므로 실제 AI lifecycle의 준수 결과는 아니다.
+
+실제 Claude 개발 시도는 두 번이다. pilot-01은 PTY 온보딩에서 timeout,
+[pilot-02](runs/governance-pilot-20261011-02/report.md)는 실제 SessionStart(startup) 뒤
+첫 호출에서 `OAuth access token has expired`로 실패했다. 이 초기 pilot에는 실행 전
+코드 스냅샷이 없으므로 현재 드라이버를 그 시도의 정확한 revision으로 취급하지 않는다.
+완료된 압축·재시작·위임 비교는 0건이며 G0/G1/G2 효과는 UNEVALUATED다.
+추가 유료 API나 원격 서버 접속·인증 정보 이전을 수행하지 않았다.
+
+현재 한계: 지정된 argv와 Write/Edit에 대한 workflow helper이며 보안 sandbox가 아니다.
+임의 Bash·다른 tool·추적하지 않은 입력·외부 상태·실행 직전 race를 보장하지 않는다.
+receipt의 성공은 설정된 검사만 통과했다는 뜻이며 자연어 지침 전체 준수를 뜻하지 않는다.
+
+다음 한 가지 작업: 별도 실험 workspace에서 실제 Claude의 동일 조건 G0/G1/G2 trajectory를
+실행하고 준수 위반, 차단, 정상 작업 완료와 lifecycle 증거를 함께 비교한다.
